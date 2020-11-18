@@ -1,5 +1,6 @@
 # ycchang4-bohan3-mingw4
 CS 225 Project Goals 
+
 In the final project, we will use the data set of the Open Flight dataset. We will build a program that reads in the dataset. Reads user input of different locations and yields the sequence of flights that lead them to the destination. A landmark feature is added. Also, we plan to make a visualization of the map and path, but not quite decided. 
 - Traversals
   1. BFS (Breadth First Search)
