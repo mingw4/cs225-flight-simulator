@@ -5,7 +5,7 @@ We will be using the data from the Open Flight dataset for this project. The pro
 
 We will love to add an additional feature producing graphical output for visualization if time is allowed.
 
-We will use a breadth-first search (BFS) to help with traversing and algorithm development. To find the shortest path, we will implement Dijkstra's Algorithm with the airport and flight data. The landmark path algorithm will help us find the path from location A to location B while passing through location C. 
+We will use a breadth-first search (BFS) traversal for algoritm development. To find the shortest path, we will implement Dijkstra's Algorithm with the airport and flight data. The landmark path algorithm will help us find the path from location A to location B while passing through location C. 
 
 - Traversals
   1. Breadth First Search (required)
