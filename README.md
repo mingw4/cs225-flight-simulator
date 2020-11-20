@@ -9,6 +9,7 @@ We will use a breadth-first search (BFS) to help with traversing and algorithm d
 
 - Traversals
   1. Breadth First Search (required)
+  
 	  This part is used to help the algorithm development.
 - Covered Algorithms
   1. Dijkstra’s Algorithm (required)
