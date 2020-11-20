@@ -15,7 +15,7 @@ We will use a breadth-first search (BFS) to help with traversing and algorithm d
 	  This part is used to find the shortest path based on the airport and flight data.
 - Complex or Uncovered Options
   1. Landmark Path (required)
-    To find the shortest path a-b through c
+    To find the shortest path a-b through cㄡ
     This part is used to implement the landmark feature.
   2. Graphical output on projected onto a world map (optional)
     This part is about visual output.
