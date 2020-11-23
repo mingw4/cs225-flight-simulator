@@ -1,3 +1,4 @@
+#pragma once
 #include "graph.h"
 
 
@@ -7,4 +8,5 @@ class AirGraph {
 		Graph g;
 	public:
 		AirGraph();
+		vector<string> split(string s, char sep);
 };

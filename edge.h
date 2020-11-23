@@ -11,8 +11,8 @@ class Edge
 
 		Vertex source;
 		Vertex dest;
-		double weight;
 		string label;
+		double weight;
 		int stops;
 		
 

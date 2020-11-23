@@ -1,11 +1,7 @@
-
-
 #include "graph.h"
 
 
-Graph() { }
-
-
+Graph::Graph() { }
 
 vector<Vertex> Graph::getAdjacent(Vertex source) const {
 	vector<Vertex> ret;
@@ -28,7 +24,7 @@ Edge Graph::getEdge(Vertex source , Vertex destination) const {
 }
 
 bool Graph::vertexExists(Vertex v) const {
-	if (adj_list.find(v) == adj_List.end()) {
+	if (adj_list.find(v) == adj_list.end()) {
 		return false;
 	}
 	return true;
@@ -36,7 +32,7 @@ bool Graph::vertexExists(Vertex v) const {
 
 
 bool Graph::edgeExists(Vertex source, Vertex destination) const {
-	if (adj_list.find(source) == adj_List.end()) {
+	if (adj_list.find(source) == adj_list.end()) {
 		return false;
 	}
 	if (adj_list[source].find(destination) == adj_list[source].end()) {

@@ -13,17 +13,27 @@ class Vertex {
 		Vertex(string aid, double la, double lo)
 			: id(aid), lat(la), lnt(lo) { }
 		Vertex() : id(""), lat(91.0), lnt(181.0) { }
-		string getid() {
+		string getid() const {
 			return id;
 		}
-		double getLatitude() {
+		double getLatitude() const {
 			return lat;
 		}
-		double getLongtitude() {
+		double getLongtitude() const {
 			return lnt;
 		}
 		bool operator!= (const Vertex& other) const {
 			return this->id != other.id;
-			
+		}
+		bool operator== (const Vertex& other) const {
+			return this->id == other.id;
 		}
 };
+namespace std {
+	template<>
+	struct std::hash<Vertex> {
+		std::size_t operator()(const Vertex& v) const {
+			return std::hash<string>()(v.getid());
+		}
+	};
+}

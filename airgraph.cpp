@@ -5,10 +5,10 @@
 using std::ios;
 using std::ifstream;
 
-vector<string> split(string s, char sep) {
+vector<string> AirGraph::split(string s, char sep) {
 	vector<string> ret;
-	int pos = 0;
-	for (int i = 0; i < s.size(); i++) {
+	size_t pos = 0;
+	for (size_t i = 0; i < s.size(); i++) {
 		if (s[i] == sep) {
 			ret.push_back(s.substr(pos, i - pos));
 			pos = i + 1;
