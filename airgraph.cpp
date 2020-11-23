@@ -1,6 +1,6 @@
 #include <fstream>
 #include "airgraph.h"
-
+#include <iostream>
 
 using std::ios;
 using std::ifstream;
@@ -8,11 +8,15 @@ using std::ifstream;
 vector<string> AirGraph::split(string s, char sep) {
 	vector<string> ret;
 	size_t pos = 0;
+	bool quotation = false;
 	for (size_t i = 0; i < s.size(); i++) {
+		if (s[i] == '"') quotation = !quotation;
+		if (quotation) continue;
 		if (s[i] == sep) {
 			ret.push_back(s.substr(pos, i - pos));
 			pos = i + 1;
 		}
+
 	}
 	ret.push_back(s.substr(pos, s.size() - pos));
 	return ret;
@@ -49,4 +53,8 @@ AirGraph::AirGraph(): g() {
 		}	
 	}
 	
+}
+
+Graph& AirGraph::getGraph() {
+	return g;
 }

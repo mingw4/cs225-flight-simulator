@@ -8,5 +8,6 @@ class AirGraph {
 		Graph g;
 	public:
 		AirGraph();
+		Graph& getGraph();
 		vector<string> split(string s, char sep);
 };
