@@ -5,6 +5,8 @@
 #pragma once
 
 #include "graph.h"
+#include "edge.h
+#include "vertex.h"
 #include <iterator>
 #include <cmath>
 #include <list>
@@ -14,11 +16,15 @@
 class BFS {
     public:
 
-        //add the airport for the traversal to visit
-        void add(const Vertex & airport);
+        //BFS algorithm, add the airport for the traversal to visit
+        void bfs(Vertex source, Vertex destination);
+
 
     private:
     
-        std::queue<Vertex> travelPath; //storing the airports(vertices) travelled
+        std::queue<vector<Vertex>> travelPath; //storing the airports(vertices) travelled
+
+        //stores the visited location
+        bool *visited;
         
 };
