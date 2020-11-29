@@ -29,6 +29,8 @@ class Graph {
 
 		bool insertEdge(Vertex source, Vertex destination, double w, string s, int stop);
 
+		void showStats();
+
 	private:
 		mutable unordered_map<Vertex, unordered_map<Vertex, Edge>> adj_list;
 		

@@ -40,14 +40,19 @@ AirGraph::AirGraph(): g() {
 			vertice[sv[0]] = v;
 		}
 	}
+	
 	ifstream routes("./routes.dat.txt", ios::in);
 	if (routes.is_open()) {
 		string x;
-		while(getline(airports, x)) {
+		while(getline(routes, x)) {
 			vector<string> sv = split(x, ',');
 			if (sv[6] == "Y") continue; //if code share continue
-			Vertex source = vertice[sv[1]];
-			Vertex dest = vertice[sv[3]];
+
+
+			Vertex source = vertice[sv[3]];
+			
+			Vertex dest = vertice[sv[5]];
+			//std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
 			double w = 0; //calculateWeight()
 			g.insertEdge(source,dest,w,sv[8],std::stoi(sv[7]));
 		}	

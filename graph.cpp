@@ -1,6 +1,6 @@
 #include "graph.h"
-
-
+#include "stdio.h"
+#include <iostream>
 Graph::Graph() { }
 
 vector<Vertex> Graph::getAdjacent(Vertex source) const {
@@ -42,7 +42,10 @@ bool Graph::edgeExists(Vertex source, Vertex destination) const {
 }
 
 void Graph::insertVertex(Vertex v) {
-	if (adj_list.find(v) != adj_list.end()) return;
+	if (adj_list.find(v) != adj_list.end()) {
+		printf("same vertex: ");
+		return;
+	}
 
 	adj_list[v] = unordered_map<Vertex, Edge>();
 
@@ -53,13 +56,22 @@ void Graph::insertVertex(Vertex v) {
 bool Graph::insertEdge(Vertex source, Vertex destination, double w, string lbl, int stop) {
 	if (adj_list.find(source) != adj_list.end() 
 		&& adj_list[source].find(destination) != adj_list[source].end()) {
+		printf("duplicate!");
 		return false;
 	}
 	if (adj_list.find(source) == adj_list.end()) {
+		printf("non-exist source");
 		adj_list[source] = unordered_map<Vertex, Edge>();
 	}
 	adj_list[source][destination] = Edge(source, destination, w, lbl, stop);
 	return true;
+}
+
+void Graph::showStats() {
+	for (auto it = adj_list.begin(); it != adj_list.end();it++) {
+		if (it->second.size() == 0) continue;
+		std::cout << it->first.getid() << "has " << std::to_string(it->second.size()) << " edges" << std::endl;
+	}
 }
 
 
