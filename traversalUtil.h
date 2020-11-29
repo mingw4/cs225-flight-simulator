@@ -20,4 +20,5 @@ class BFS {
     private:
     
         std::queue<Vertex> travelPath; //storing the airports(vertices) travelled
+        
 };
