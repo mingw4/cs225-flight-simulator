@@ -4,3 +4,4 @@ Week 2: Starting graph implentation and data reading --Bohan Liu
         Starting traversal implementation --Grace Chang
 		Completed a working (but untested) graph implementation. With weight assignment left todo. --Bohan Liu
 			The data is read, cleaned, and weighted according to the latitude and longitude is assigned to the dat file ---mingw
+			The weight of the path(Weight of graph edges) is stored in the weight of the route.   ----mingw
