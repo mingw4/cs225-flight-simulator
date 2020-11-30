@@ -3,10 +3,10 @@ Week 1: Finished team contract and goal. Assigned work to each member.
 Week 2: Starting graph implentation and data reading --Bohan Liu
         Starting traversal implementation --Grace Chang
 		Completed a working (but untested) graph implementation. With weight assignment left todo. --Bohan Liu
-			The data is read, cleaned, and weighted according to the latitude and longitude is assigned to the dat file ---mingw
-			The weight of the path(Weight of graph edges) is stored in the weight of the route.   ----mingw
+			The data is read, cleaned, and weighted according to the latitude and longitude is assigned to the dat file --Ming Wang
+			The weight of the path(Weight of graph edges) is stored in the weight of the route.   --Wang
 			Completed function: input the latitude and longitude coordinates of two airports, 
-			and output a line connecting the two airports. -----mingw
+			and output a line connecting the two airports. --Ming Wang
 			So the next task is to use the shortest path algorithm to find the points passing between airports, 
 			and then use the line drawing function in pngtest.cpp 
-			to draw the route on the standard airport latitude and longitude map.  ----mingw
+			to draw the route on the standard airport latitude and longitude map.  --Ming Wang
