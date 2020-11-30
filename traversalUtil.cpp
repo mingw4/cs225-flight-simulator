@@ -30,15 +30,17 @@ void BFS::bfs(Vertex source, Vertex destination) {
  */
 
 
-void BFS::shortestPath(const Graph &graph, int source, string aid) {
+void BFS::shortestPath(const Graph &graph, int v, string aid, Vertex source) {
     return;
     // distBwVertices.resize(std::numeric_limits<double>::infinity());
-    // distBwVertices[source] = 0;
+    // distBwVertices[v] = 0;
     // //push the starting point to the priority queue
-    // pq.push(vertex(source, 0));
+    // pq.push(Vertex(source.getid(), source.getLatitude(), source.getLongtitude()));
     // while(!pq.empty()) {
     //     int index = pq.top().index;
     //     pq.pop();
-    //     for()
+    //     for(Vertex x : graph.getAdjacent(source)) {
+
+    //     }
     // }
 }

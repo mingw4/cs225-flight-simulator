@@ -26,7 +26,7 @@ class BFS {
 
 
         //find the shortest path between all the vertices(airports)
-        void shortestPath(const Graph &graph, int source, string aid);
+        void shortestPath(const Graph &graph, int v, string aid, Vertex source);
 
 
     private:
@@ -39,6 +39,6 @@ class BFS {
         //stores the distance between two vertices
         vector<double> distBwVertices;
 
-        std::priority_queue<vertex> pq;
+        std::priority_queue<Vertex> pq;
         
 };
