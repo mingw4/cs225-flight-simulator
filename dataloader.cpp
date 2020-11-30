@@ -8,23 +8,23 @@ double toRadians(double angdeg)
     double PI = 3.14159265358979323846;
     return angdeg / 180.0 * PI;
 }
-//根据经纬度算距离
+//Dis calculation according to lat & lng
 double getDistance(Port n1, Port n2)
 {
     double longitude1=n1.Longitude, latitude1=n1.Latitude, longitude2=n2.Longitude, latitude2=n2.Latitude;
-    //维度
+    //lat
     double  lat1 = toRadians(latitude1);
     double  lat2 = toRadians(latitude2);
-    //经度
+    //lng
     double  lng1 = toRadians(longitude1);
     double  lng2 = toRadians(longitude2);
-    //纬度之差
+    //difference of lat
     double  a = lat1 - lat2;
-    //精度之差
+    //difference of lng
     double  b = lng1 - lng2;
-    //计算两点距离之差
+    //calgulate the distance
     double s = 2*asin(sqrt(pow(sin(a/2),2)+cos(lat1)*cos(lat2)*pow(sin(b/2),2)));
-    s = s * 6371;//地球半径单位千米
+    s = s * 6371;//the radius of earth (km)
     return s;
 }
 FILE * FileOpen(string fileName)
@@ -40,7 +40,7 @@ FILE * FileOpen(string fileName)
 }
 Dataloader::Dataloader(string fileRoute, string filePorts)
 {
-    // 读取机场信息
+    // read airport data
     FILE *fp = FileOpen(filePorts);
     char tempC[400];
     Port tempP;
@@ -71,7 +71,7 @@ Dataloader::Dataloader(string fileRoute, string filePorts)
     }
     cout << "PortsNum:" << Ports.size() << endl;
     fclose(fp);
-    // 读取航线信息
+    // read route data
     fp = FileOpen(fileRoute);
     Route tempR;
     map<int, Port>::iterator itera;

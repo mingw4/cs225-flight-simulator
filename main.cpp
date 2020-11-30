@@ -4,7 +4,6 @@
 #include <fstream>
 #include <string>
 #include "dataloader.h"
-#include "pngtest.cpp"
 using namespace std;
 struct E {
     int next;
@@ -34,7 +33,6 @@ bool mark[1001];
 
 int main()
 {
-    PNGLine(-155.86000061035156, 20.265300750732422,-76.60880279540001,37.132499694799996);
     Dataloader din("/Users/wjh/Desktop/dan/dan/routes.dat", "/Users/wjh/Desktop/dan/dan/airports.dat");
     return 0;
 }
