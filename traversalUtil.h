@@ -6,6 +6,7 @@
 
 #include "graph.h"
 #include "edge.h
+#include "dataloader.h"
 #include "vertex.h"
 #include <iterator>
 #include <cmath>
@@ -29,6 +30,10 @@ class BFS {
         void shortestPath(const Graph &graph, int v, string aid, Vertex source);
 
 
+        //check if the certain airport is visited
+        bool hasVisited(Vertex v);
+
+
     private:
     
         std::queue<vector<Vertex>> travelPath; //storing the airports(vertices) travelled
@@ -40,5 +45,8 @@ class BFS {
         vector<double> distBwVertices;
 
         std::priority_queue<Vertex> pq;
+
+        //keep track of whether an aiport is visted, first: airport id
+        std::vector<pair<string, bool>> visited;
         
 };
