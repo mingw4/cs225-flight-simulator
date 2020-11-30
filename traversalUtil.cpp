@@ -19,7 +19,6 @@ void BFS::bfs(Vertex source, Vertex destination) {
         if(last == destination) {
             travelPath.push(path);
         }
-
     }
 }
 
@@ -44,15 +43,4 @@ bool BFS::hasVisited(Vertex v) {
 
 void BFS::shortestPath(const Graph &graph, int v, string aid, Vertex source) {
     
-    distBwVertices.resize(std::numeric_limits<double>::infinity());
-    distBwVertices[v] = 0;
-    //push the starting point to the priority queue
-    pq.push(Vertex(source.getid(), source.getLatitude(), source.getLongtitude()));
-    while(!pq.empty()) {
-        int index = pq.top().;
-        pq.pop();
-        for(Vertex x : graph.getAdjacent(source)) {
-            if()
-        }
-    }
 }

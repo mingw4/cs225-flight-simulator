@@ -49,4 +49,6 @@ class BFS {
         //keep track of whether an aiport is visted, first: airport id
         std::vector<pair<string, bool>> visited;
         
+        //use map to stroe whether an airport is visited
+        std::map<string, bool> visited; 
 };
