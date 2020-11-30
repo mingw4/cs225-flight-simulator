@@ -8,3 +8,5 @@ Week 2: Starting graph implentation and data reading --Bohan Liu
 			Completed function: input the latitude and longitude coordinates of two airports, 
 			and output a line connecting the two airports. --Ming Wang
 			So the next task is to use the shortest path algorithm to find the points passing between airports. --Ming Wang
+Week 3:
+	Continue working on BFS generic functions -- Grace Chang
