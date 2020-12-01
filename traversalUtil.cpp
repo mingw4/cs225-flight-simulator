@@ -42,5 +42,5 @@ bool BFS::hasVisited(Vertex v) {
 
 
 void BFS::shortestPath(const Graph &graph, int v, string aid, Vertex source) {
-    
+    if()
 }
