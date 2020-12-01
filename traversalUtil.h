@@ -34,6 +34,9 @@ class BFS {
         bool hasVisited(Vertex v);
 
 
+        void bfs(const Graph &graph, Vertex source, Vertex destination);
+
+
     private:
     
         std::queue<vector<Vertex>> travelPath; //storing the airports(vertices) travelled
@@ -49,8 +52,11 @@ class BFS {
         //keep track of whether an aiport is visted, first: airport id
         std::vector<pair<string, bool>> visited;
         
-        //use map to stroe whether an airport is visited
-        std::map<string, bool> visited; 
+        // //use map to stroe whether an airport is visited
+        // std::map<string, bool> visited; 
+
+
+    
 
         
 };

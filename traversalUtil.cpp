@@ -34,13 +34,26 @@ bool BFS::hasVisited(Vertex v) {
 }
 
 
-/** find the shortest path between vertices
- * graph - the airline graph
- * source = the starting point
- * aid - the airport id 
- */
 
+void BFS::bfs(const Graph &graph, Vertex source, Vertex destination) {
+    for(Vertex willVisit : graph.getAdjacent(source)) {
+        visited.push_back(make_pair(willVisit.getid(), false));
+    }
 
-void BFS::shortestPath(const Graph &graph, int v, string aid, Vertex source) {
-    if()
+    list<Vertex> q;
+    visited[0] = make_pair(source.getid(), true);
+    q.push_back(source);
+
+    
+    while(!q.empty()) {
+        source = q.front();
+        q.pop_front();
+
+        for(int i = 0; i < graph.getAdjacent(source).size(); i++) {
+            if(visited[i].second != true) {
+                visited[i].second = true;
+                q.push_back(graph.getAdjacent(source)[i]);
+            }
+        }
+    }
 }
