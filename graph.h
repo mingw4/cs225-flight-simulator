@@ -1,7 +1,8 @@
 #pragma once
 
 #include <vector>
-#include <unordered_map>
+#include <map>
+#include<unordered_map>
 
 
 #include "vertex.h"
@@ -32,7 +33,7 @@ class Graph {
 		void showStats();
 
 	private:
-		mutable unordered_map<Vertex, unordered_map<Vertex, Edge>> adj_list;
+		mutable std::map<Vertex, unordered_map<Vertex, Edge>> adj_list;
 		
 
 };

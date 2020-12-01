@@ -1,10 +1,11 @@
 #pragma once
 #include "graph.h"
+#include<map>
 
 
 class AirGraph {
 	private:
-		mutable unordered_map<string, Vertex> vertice;
+		mutable std::map<string, Vertex> vertice;
 		Graph g;
 	public:
 		AirGraph();
