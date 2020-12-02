@@ -33,7 +33,7 @@ class Graph {
 		void showStats();
 
 	private:
-		mutable std::map<Vertex, unordered_map<Vertex, Edge>> adj_list;
+		mutable std::unordered_map<Vertex, unordered_map<Vertex, Edge>> adj_list;
 		
 
 };
