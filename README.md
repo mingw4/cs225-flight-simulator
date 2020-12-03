@@ -1,4 +1,4 @@
-# ycchang4-bohan3-mingw4
+# ycchang4-bohan3-mingw4-jialen2
 CS 225 Project Goals 
 
 We will be using the data from the Open Flight dataset for this project. The program will read the data from Open Flight and users' inputs for the desired starting point and destination. Once the information (the starting location and the desired destination) is given, the program will search for the best sequence of flights that lead them to the destination based on the shortest path. The additional landmark feature is to find the best path getting from location A to location B while passing location C.
