@@ -36,7 +36,7 @@ bool BFS::hasVisited(Vertex v) {
 }
 
 
-
+// adj_list instead! Error! 
 void BFS::bfs(const Graph &graph, Vertex source, Vertex destination) {
     for(Vertex willVisit : graph.getAdjacent(source)) {
         visited.push_back(make_pair(willVisit.getid(), false));
