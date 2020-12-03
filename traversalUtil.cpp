@@ -1,4 +1,5 @@
 #include "traversalUtil.h"
+#include <list>
 
 
 /** add the airport for the traversal to visit
@@ -25,9 +26,10 @@ void BFS::bfs(Vertex source, Vertex destination) {
 /**
  * check if a given airport is visited.
  * v - the given airpot
+ * 
  */
 bool BFS::hasVisited(Vertex v) {
-    for(pair<string, bool> check : visited) {
+    for(std::pair<string, bool> check : visited) {
         if(check.second == true) return true;
     }
     return false;
@@ -40,7 +42,7 @@ void BFS::bfs(const Graph &graph, Vertex source, Vertex destination) {
         visited.push_back(make_pair(willVisit.getid(), false));
     }
 
-    list<Vertex> q;
+    std::list<Vertex> q;
     visited[0] = make_pair(source.getid(), true);
     q.push_back(source);
 

@@ -6,7 +6,6 @@
 
 #include "graph.h"
 #include "edge.h
-#include "dataloader.h"
 #include "vertex.h"
 #include <iterator>
 #include <cmath>
@@ -33,7 +32,7 @@ class BFS {
         //check if the certain airport is visited
         bool hasVisited(Vertex v);
 
-
+        //bfs traversal attempting to traverse all the vertices (airports)
         void bfs(const Graph &graph, Vertex source, Vertex destination);
 
 
@@ -50,11 +49,9 @@ class BFS {
         std::priority_queue<Vertex> pq;
 
         //keep track of whether an aiport is visted, first: airport id
-        std::vector<pair<string, bool>> visited;
+        std::vector<std::pair<string, bool>> visited;
         
-        // //use map to stroe whether an airport is visited
-        // std::map<string, bool> visited; 
-
+       
 
     
 
