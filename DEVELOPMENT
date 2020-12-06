@@ -12,3 +12,6 @@ Week 3:
 	Continue working on BFS generic functions -- Grace Chang
 	Revised weight function by a integrating stops, airspeed and improve performance. --Bohan Liu
 	```make test``` is now working. Created a basic made-up test data. --Bohan Liu
+	LandmarkPath is implemented. --MingWang
+	An Dijkstra.h file has been added for LandmarkPath's invoke. --Ming Wang
+	This will be overwritten by a formal version uploaded by the assigned teammate. --Ming Wang
