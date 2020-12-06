@@ -10,3 +10,4 @@ Week 2: Starting graph implentation and data reading --Bohan Liu
 			So the next task is to use the shortest path algorithm to find the points passing between airports. --Ming Wang
 Week 3:
 	Continue working on BFS generic functions -- Grace Chang
+	Revised weight function by a integrating stops, airspeed and improve performance. --Bohan Liu

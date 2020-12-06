@@ -8,30 +8,28 @@
 using std::ios;
 using std::ifstream;
 
-double toRadians(double angdeg)
-{
-    double E = 2.7182818284590452354;
-    double PI = 3.14159265358979323846;
-    return angdeg / 180.0 * PI;
-}
 //Dis calculation according to lat & lng
 double getDistance(Vertex n1, Vertex n2)
-{
+{	
+
+	const double t = 0.017453292519943295;
     double longitude1=n1.getLongtitude(), latitude1=n1.getLatitude(), longitude2=n2.getLongtitude(), latitude2=n2.getLatitude();
     //lat
-    double  lat1 = toRadians(latitude1);
-    double  lat2 = toRadians(latitude2);
-    //lng
-    double  lng1 = toRadians(longitude1);
-    double  lng2 = toRadians(longitude2);
-    //difference of lat
+	
+    //difference of lat /rad
+	
+	double lat1 = latitude1 * t;
+	double lat2 = latitude2 * t;
     double  a = lat1 - lat2;
-    //difference of lng
-    double  b = lng1 - lng2;
+    //difference of lng /rad
+    double  b = (longitude1 - longitude2) * t;
     //calgulate the distance
-    double s = 2*asin(sqrt(pow(sin(a/2),2)+cos(lat1)*cos(lat2)*pow(sin(b/2),2)));
-    s = s * 6371;//the radius of earth (km)
-    return s;
+	
+	double s = 0.5 - cos(a)/2 + cos(lat1) * cos(lat2) * (1-cos(b))/2;
+    //double s = 2*asin(sqrt(pow(sin(a/2),2)+cos(lat1)*cos(lat2)*pow(sin(b/2),2)));
+    //s = s * 6371;//the radius of earth (km)
+	
+    return 12742 * asin(sqrt(s));
 }
 
 
@@ -83,8 +81,16 @@ AirGraph::AirGraph(): g() {
 			
 			Vertex dest = vertice[sv[5]];
 			//std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
+			//distance based weight
 			double w = getDistance(source, dest);
+			//calculate cruise time
+			w /= 850;
+			w += 2;
+			// add stop time if needed
+			if (std::stoi(sv[7]) > 0) w+=2;
 
+			std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
+			std::cout << "estimated travel time:" << w <<std::endl;
 
 			g.insertEdge(source,dest,w,sv[8],std::stoi(sv[7]));
 		}	
