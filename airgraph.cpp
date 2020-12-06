@@ -7,7 +7,7 @@
 
 using std::ios;
 using std::ifstream;
-
+using std::string;
 //Dis calculation according to lat & lng
 double getDistance(Vertex n1, Vertex n2)
 {	
@@ -51,31 +51,48 @@ vector<string> AirGraph::split(string s, char sep) {
 }
 
 
-AirGraph::AirGraph(): g() {
-	ifstream airports("./airports.dat.txt", ios::in);
+
+AirGraph::AirGraph(string airportFile, string routeFile): g() {
+	ifstream airports(airportFile, ios::in);
 	if (airports.is_open()) {
 		string x;
 		while(getline(airports, x)) {
 			vector<string> sv = split(x, ',');
+			double lat, lnt;
+			try {
+				lat = std::stod(sv[6]);
+				lnt = std::stod(sv[7]);
+			} catch (std::invalid_argument) {
+				continue;
+			}
 			/**sv index table:  0 - airport_id
 			  					1 , 2 ,3 - name, city, country
 								4 , 5 - IATA, ICAO
 								6, 7  - Lat, Lnt
 								nvm
 			*/
-			Vertex v(sv[0], std::stod(sv[6]), std::stod(sv[7]));
+			Vertex v(sv[0], lat, lnt);
 			g.insertVertex(v);
 			vertice[sv[0]] = v;
 		}
 	}
 	
-	ifstream routes("./routes.dat.txt", ios::in);
+	ifstream routes(routeFile, ios::in);
 	if (routes.is_open()) {
 		string x;
 		while(getline(routes, x)) {
 			vector<string> sv = split(x, ',');
-			if (sv[6] == "Y") continue; //if code share continue
+			int stops;
+			try {
+				std::stoi(sv[3]); std::stoi(sv[5]); //test if id is valid int form, though we use them as string
 
+				stops = std::stoi(sv[7]);
+			} catch (std::invalid_argument) {
+				//skip if the structure isn't good.
+				continue;
+			}
+			if (sv[6] == "Y") continue; //if code share continue
+			
 
 			Vertex source = vertice[sv[3]];
 			
@@ -92,7 +109,7 @@ AirGraph::AirGraph(): g() {
 			std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
 			std::cout << "estimated travel time:" << w <<std::endl;
 
-			g.insertEdge(source,dest,w,sv[8],std::stoi(sv[7]));
+			g.insertEdge(source,dest,w,sv[8],stops);
 		}	
 	}
 	
