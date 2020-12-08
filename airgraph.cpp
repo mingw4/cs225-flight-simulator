@@ -49,7 +49,7 @@ vector<string> AirGraph::split(string s, char sep) {
 	ret.push_back(s.substr(pos, s.size() - pos));
 	return ret;
 }
-
+AirGraph::AirGraph(): g() { }
 
 
 AirGraph::AirGraph(string airportFile, string routeFile): g() {
@@ -65,6 +65,7 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 			} catch (std::invalid_argument) {
 				continue;
 			}
+			
 			/**sv index table:  0 - airport_id
 			  					1 , 2 ,3 - name, city, country
 								4 , 5 - IATA, ICAO
@@ -74,7 +75,10 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 			Vertex v(sv[0], lat, lnt);
 			g.insertVertex(v);
 			vertice[sv[0]] = v;
+			codetable[sv[4]] = sv[0];
 		}
+	} else {
+		throw airportFile;
 	}
 	
 	ifstream routes(routeFile, ios::in);
@@ -111,10 +115,22 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 
 			g.insertEdge(source,dest,w,sv[8],stops);
 		}	
+	} else {
+		throw routeFile;
 	}
 	
 }
 
 Graph& AirGraph::getGraph() {
 	return g;
+}
+
+
+string AirGraph::getid(const string& iata) const{
+	auto lookup = codetable.find(iata);
+	if (lookup != codetable.end()) {
+		return codetable[iata];
+	} else {
+		throw iata;
+	}
 }
