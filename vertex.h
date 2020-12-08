@@ -13,6 +13,7 @@ class Vertex {
 		Vertex(string aid, double la, double lo)
 			: id(aid), lat(la), lnt(lo) { }
 		Vertex() : id(""), lat(91.0), lnt(181.0) { }
+		Vertex(string aid) : id(aid) { }
 		string getid() const {
 			return id;
 		}

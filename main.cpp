@@ -56,6 +56,18 @@ int main(int argc,  char* argv[]) {
 		cout << "Airport not in data or malformed airport entry: " << s << endl;
 		return -1;
 	}
+	Vertex source = Vertex(start);
+	Vertex dest = Vertex(end);
+	try {
+		source  = a.getVertex(start);
+		dest = a.getVertex(end);
+	} catch(string s) {
+		cout << "Malformed entry:missing id / IATA / lat / lng" + s << endl;
+		return -1;
+	}
+
+
+
 	Graph g = a.getGraph();
 
 	g.showStats();

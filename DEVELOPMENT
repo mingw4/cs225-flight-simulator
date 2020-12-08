@@ -16,3 +16,8 @@ Week 3:
 	An Dijkstra.h file has been added for LandmarkPath's invoke. --Ming Wang
 	This will be overwritten by a formal version uploaded by the assigned teammate. --Ming Wang
 	Completed Dijkstra algorithm and override previous Dijkstra header file, but haven't run the test yet -- Jiale Ning
+
+
+Week4:
+	Update main.cpp to accept arguments. Add error catching in initialization. --Bohan Liu
+	Revised vertex, airgraph to fit other implementations. --Bohan Liu

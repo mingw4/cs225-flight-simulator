@@ -134,3 +134,12 @@ string AirGraph::getid(const string& iata) const{
 		throw iata;
 	}
 }
+
+Vertex Airgraph::getVertex(const string& id) const {
+	auto lookup = vertice.find(id);
+	if (lookup != codetable.end()) {
+		return vertice[id];
+	} else {
+		throw id;
+	}
+}
