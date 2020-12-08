@@ -10,9 +10,7 @@
 class LandmarkPath {
 public:
     LandmarkPath(const AirGraph& airGraph);
-
     vector<Edge> findWithDijkstra(Vertex &start, Vertex &end, const vector<Vertex> &landmarks);
-    vector<Edge> findWithBfs(Vertex &start, Vertex &end, const vector<Vertex> &landmarks);
 
 private:
     AirGraph airGraph_;
