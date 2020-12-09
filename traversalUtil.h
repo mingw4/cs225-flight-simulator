@@ -3,15 +3,18 @@
 #pragma once
 
 #include "airgraph.h"
-#include "heap.h"
 #include "vertex.h"
 #include "edge.h"
 #include "graph.h"
+
 
 #include <map>
 #include <vector>
 #include <unordered_map>
 #include <iostream> 
+#include <queue>
+#include <cstddef>
+#include <stddef.h>
 
 
 
@@ -29,11 +32,9 @@ class traversal {
         std::unordered_map<Vertex, bool> visited;
 
         //use heap as priority queue to find the nearest vertex for next iteration
-        heap priorityQueue;
+        std::priority_queue<Vertex> priorityQueue;
 
         //the number of vertices in the graph
         int numberOfVertices;
 
-        //map the Vertex into Node in order to use heap as priority queue.
-        std::unordered_map<Vertex, Node*> vertexToNode;
 };
