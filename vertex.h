@@ -6,17 +6,19 @@ using std::string;
 
 class Vertex {
 	private:
-		string id;
 		double lat;
 		double lnt;
+		string id;
+		string iata;
 	public:
-		Vertex(string aid, double la, double lo)
-			: id(aid), lat(la), lnt(lo) { }
-		Vertex() : id(""), lat(91.0), lnt(181.0) { }
+		Vertex(string aid, double la, double lo, string i)
+			: lat(la), lnt(lo), id(aid),iata(i) { }
+		Vertex() : lat(91.0), lnt(181.0),id(""),iata("") { }
 		Vertex(string aid) : id(aid) { }
 		string getid() const {
 			return id;
 		}
+		string getiata() const { return iata;}
 		double getLatitude() const {
 			return lat;
 		}

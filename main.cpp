@@ -2,9 +2,10 @@
 
 
 #include <iostream>
-#include "Dijkstra.h"
+#include "LandmarkPath.h"
 using std::cout;
 using std::endl;
+using algorithms::Dijkstra;
 
 
 int main(int argc,  char* argv[]) {
@@ -70,5 +71,8 @@ int main(int argc,  char* argv[]) {
 
 	Dijkstra d(a, source);
 	vector<Edge> ev = d.shortestPathTo(end);
+	for (Edge &e : ev) {
+		cout << e.source.getiata() <<endl;
+	}
 	return 0;
 }

@@ -75,7 +75,7 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 								6, 7  - Lat, Lnt
 								nvm
 			*/
-			Vertex v(sv[0], lat, lnt);
+			Vertex v(sv[0], lat, lnt, sv[4]);
 			g.insertVertex(v);
 			vertice[sv[0]] = v;
 			codetable[sv[4]] = sv[0];
@@ -101,9 +101,9 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 			if (sv[6] == "Y") continue; //if code share continue
 			
 
-			Vertex source = vertice[sv[3]];
+			Vertex source = vertice[("\"" + sv[3] + "\"")];
 			
-			Vertex dest = vertice[sv[5]];
+			Vertex dest = vertice[("\"" + sv[5] + "\"")];
 			//std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
 			//distance based weight
 			double w = distance(source, dest);
@@ -149,6 +149,6 @@ Vertex AirGraph::getVertex(const string& id) const {
 }
 
 
-int Airgraph::vSize() const{
+int AirGraph::vSize() const{
 	return vertice.size();
 }

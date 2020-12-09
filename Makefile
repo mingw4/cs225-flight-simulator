@@ -35,7 +35,7 @@ Dijkstra.o : Dijkstra.cpp
 main.o : main.cpp
 	$(CXX) $(CXXFLAGS) main.cpp
 
-LandmarkPath.o : LandmarkPath.cpp
+LandmarkPath.o : LandmarkPath.cpp 
 	$(CXX) $(CXXFLAGS) LandmarkPath.cpp
 
 data :
