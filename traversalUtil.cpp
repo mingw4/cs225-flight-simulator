@@ -9,8 +9,6 @@
 
 void traversal::bfs(Graph &graph, Vertex source) {
 
-    Node *startingPoint = new Node(source, 0, Vertex());
-    // vertexToNode[source] = startingPoint;
     priorityQueue.push(source);
 
     while(!priorityQueue.empty()) {
