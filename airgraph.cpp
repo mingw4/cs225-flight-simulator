@@ -126,6 +126,7 @@ Graph& AirGraph::getGraph() {
 }
 
 
+
 string AirGraph::getid(const string& iata) const{
 	auto lookup = codetable.find(iata);
 	if (lookup != codetable.end()) {
@@ -142,4 +143,9 @@ Vertex AirGraph::getVertex(const string& id) const {
 	} else {
 		throw id;
 	}
+}
+
+
+int Airgraph::vSize() const{
+	return vertice.size();
 }
