@@ -30,10 +30,12 @@ int main(int argc,  char* argv[]) {
 					routes = argv[i + 1];
 				}
 				if (x == "-from") {
-					start = "\"" + argv[i + 1] "\"";
+					start = argv[i + 1];
+					start = "\"" + start + "\"";
 				}
 				if (x == "-to") {
-					end = "\"" + argv[i + 1] "\"";
+					end =  argv[i + 1];
+					end = "\"" + end + "\"";
 				}
 			} else {
 				cout << "Bad argument for flag: " << argv[i] << ". value required!"<< endl; 

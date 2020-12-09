@@ -110,8 +110,8 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 			// add stop time if needed
 			if (std::stoi(sv[7]) > 0) w+=2;
 
-			std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
-			std::cout << "estimated travel time:" << w <<std::endl;
+			//std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
+			//std::cout << "estimated travel time:" << w <<std::endl;
 
 			g.insertEdge(source,dest,w,sv[8],stops);
 		}	
@@ -135,9 +135,9 @@ string AirGraph::getid(const string& iata) const{
 	}
 }
 
-Vertex Airgraph::getVertex(const string& id) const {
+Vertex AirGraph::getVertex(const string& id) const {
 	auto lookup = vertice.find(id);
-	if (lookup != codetable.end()) {
+	if (lookup != vertice.end()) {
 		return vertice[id];
 	} else {
 		throw id;

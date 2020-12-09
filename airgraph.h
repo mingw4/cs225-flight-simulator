@@ -13,4 +13,5 @@ class AirGraph {
 		Graph& getGraph();
 		vector<string> split(string s, char sep);
 		string getid(const string& k) const;
+		Vertex getVertex(const string& k) const;
 };
