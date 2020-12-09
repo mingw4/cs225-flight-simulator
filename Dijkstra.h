@@ -1,5 +1,4 @@
 #pragma once
-
 #include <iostream>
 #include <algorithm>
 #include <map>
@@ -8,10 +7,19 @@
 #include <cmath>
 #include <cstdlib>
 #include <vector>
+<<<<<<< HEAD
 #include <map>
 #include "edge.h"
 #include "vertex.h"
 #include "airgraph.h"
+=======
+#include "airgraph.h"
+#include "vertex.h"
+#include "edge.h"
+#include "Node.h"
+#include <unordered_map>
+>>>>>>> a53899850b7e34fc15103bf2c43b5445ea22bcc2
+
 
 using std::vector;
 using std::priority_queue;
@@ -47,12 +55,25 @@ namespace algorithms {
         vector<Edge> shortestPathTo(const Vertex &dest);
 
     private:
+<<<<<<< HEAD
         vector<Edge> predecessor_;
         vector<double> distanceTo_;
         priority_queue<WeightedVertex> pq_;
         const double infinite_ = std::numeric_limits<double>::infinity();
 
         bool hasPathTo(int v);
+=======
+        Graph graph;
+        Vertex source;
+        //find the nearnest point to run in next iteration
+        priority_queue<Node*, vector<Node*>, greater<Node*>> pq_;
+        //store visited points
+        unordered_map<Vertex, bool> visited;
+        //mapped from Vertex to Node
+        std::unordered_map<Vertex, Node*> store;
+        // find distance from source to every point
+        void buildMap();     
+>>>>>>> a53899850b7e34fc15103bf2c43b5445ea22bcc2
     };
 
 }

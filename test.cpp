@@ -4,7 +4,7 @@
 
 
 int main() {
-	AirGraph a("./testa.dat.txt", "./testr.dat.txt");
+	AirGraph a("./autoport.dat.txt", "./autoroute.dat.txt");
 	Graph g = a.getGraph();
 	g.showStats();
 	return 0;
