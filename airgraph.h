@@ -13,5 +13,7 @@ class AirGraph {
 		vector<string> split(string s, char sep);
 		string getid(const string& k) const;
 		Vertex getVertex(const string& k) const;
+		vector<Vertex> getAdjacent(const Vertex& v);
+		Edge getEdge(const Vertex& s, const Vertex& e);
 		int vSize() const;
 };

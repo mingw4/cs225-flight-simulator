@@ -101,9 +101,9 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 			if (sv[6] == "Y") continue; //if code share continue
 			
 
-			Vertex source = vertice[("\"" + sv[3] + "\"")];
+			Vertex source = vertice[sv[3]];
 			
-			Vertex dest = vertice[("\"" + sv[5] + "\"")];
+			Vertex dest = vertice[sv[5]];
 			//std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
 			//distance based weight
 			double w = distance(source, dest);
@@ -128,8 +128,13 @@ Graph& AirGraph::getGraph() {
 	return g;
 }
 
+vector<Vertex> AirGraph::getAdjacent(const Vertex& v) {
+	return g.getAdjacent(v);
+}
 
-
+Edge AirGraph::getEdge(const Vertex& s, const Vertex& e) {
+	return g.getEdge(s, e);
+}
 string AirGraph::getid(const string& iata) const{
 	auto lookup = codetable.find(iata);
 	if (lookup != codetable.end()) {

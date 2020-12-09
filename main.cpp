@@ -5,7 +5,7 @@
 #include "LandmarkPath.h"
 using std::cout;
 using std::endl;
-using algorithms::Dijkstra;
+
 
 
 int main(int argc,  char* argv[]) {

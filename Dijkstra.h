@@ -7,6 +7,8 @@
 #include <cmath>
 #include <cstdlib>
 #include <vector>
+
+
 #include "airgraph.h"
 #include "vertex.h"
 #include "edge.h"
@@ -14,11 +16,9 @@
 #include <unordered_map>
 
 
-
 using std::vector;
 using std::priority_queue;
 
-namespace algorithms {
 
     /**
      * vertex used only for dijkstra algorithm, as a helper for running dijkstra instead of using Airport
@@ -55,16 +55,4 @@ namespace algorithms {
         const double infinite_ = std::numeric_limits<double>::infinity();
 
         bool hasPathTo(int v);
-        Graph graph;
-        Vertex source;
-        //find the nearnest point to run in next iteration
-        //store visited points
-        unordered_map<Vertex, bool> visited;
-        //mapped from Vertex to Node
-        std::unordered_map<Vertex, Node*> store;
-        // find distance from source to every point
-        void buildMap();     
-
     };
-
-}

@@ -1,6 +1,6 @@
 #include "LandmarkPath.h"
 
-using algorithms::Dijkstra;
+
 LandmarkPath::LandmarkPath(const AirGraph &airGraph) {
     airGraph_ = airGraph;
 }
