@@ -32,7 +32,7 @@ class traversal {
         heap priorityQueue;
 
         //the number of vertices in the graph
-        int numberOfVertices
+        int numberOfVertices;
 
         //map the Vertex into Node in order to use heap as priority queue.
         std::unordered_map<Vertex, Node*> vertexToNode;
