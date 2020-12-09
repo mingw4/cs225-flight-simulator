@@ -16,7 +16,6 @@
 using std::vector;
 using std::priority_queue;
 
-namespace algorithms {
 
     /**
      * vertex used only for dijkstra algorithm, as a helper for running dijkstra instead of using Airport
@@ -54,5 +53,3 @@ namespace algorithms {
 
         bool hasPathTo(int v);
     };
-
-}
