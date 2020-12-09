@@ -21,3 +21,4 @@ Week 3:
 Week4:
 	Update main.cpp to accept arguments. Add error catching in initialization. --Bohan Liu
 	Revised vertex, airgraph to fit other implementations. --Bohan Liu
+	Update the traversalUtil (clean up) --Grace Chang
