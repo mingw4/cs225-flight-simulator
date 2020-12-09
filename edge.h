@@ -26,7 +26,7 @@ class Edge
 			:source(u), dest(v), label(lbl),weight(w), stops(s){ }
 
 		Edge() 
-			: source(Vertex()), dest(Vertex()), label(""),weight(0), stops(0) { }
+			: source(), dest(), label(""),weight(0), stops(0) { }
 		bool operator< (const Edge& other) const {
 			return weight < other.weight;
 		}

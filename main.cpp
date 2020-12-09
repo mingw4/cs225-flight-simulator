@@ -55,7 +55,7 @@ int main(int argc,  char* argv[]) {
 		start = a.getid(start);
 		end = a.getid(end);
 	} catch (string s)	{
-		cout << "Airport not in data or malformed airport entry: " << s << endl;
+		cout << "Airport not in data or malformatted airport entry: " << s << endl;
 		return -1;
 	}
 	Vertex source = Vertex(start);
@@ -64,7 +64,7 @@ int main(int argc,  char* argv[]) {
 		source  = a.getVertex(start);
 		dest = a.getVertex(end);
 	} catch(string s) {
-		cout << "Malformed entry:missing id / IATA / lat / lng" + s << endl;
+		cout << "Malformatted entry:missing id / IATA / lat / lng" + s << endl;
 		return -1;
 	}
 
