@@ -1,61 +1,37 @@
 #include "traversalUtil.h"
-#include <list>
 
 
-/** add the airport for the traversal to visit
- * airport - vertex to travel
+
+/** implement a bfs traversal
+* @param graph - the airgraph from "airgraph.h"
+* @param start - the starting vertex of the traversal
  */
 
-void BFS::bfs(Vertex source, Vertex destination) {
-    //create a vector to store the current path
-    std::vector<Vertex> path;
-    std::queue<vector<Vertex>> q;
-    path.push_back(source);
-    q.push(path);
-    while(!travelPath.empty()) {
-        path = q.front();
-        q.pop();
-        Vertex last = path[path.size() - 1];
+void traversal::bfs(Graph &graph, Vertex source) {
 
-        if(last == destination) {
-            travelPath.push(path);
-        }
-    }
-}
+    Node *startingPoint = new Node(source, 0, Vertex());
+    vertexToNode[source] = startingPoint;
+    priorityQueue.push(startingPoint);
 
-/**
- * check if a given airport is visited.
- * v - the given airpot
- * 
- */
-bool BFS::hasVisited(Vertex v) {
-    for(std::pair<string, bool> check : visited) {
-        if(check.second == true) return true;
-    }
-    return false;
-}
+    while(!priorityQueue.empty()) {
+        Node *curr = priorityQueue.pop();
+        vector<Vertex> adjVector = graph.getAdjacent(curr -> curr);
+        for(size_t i = 0; i < adjVector.size(); i++) {
 
+            //if this vertex hasn't been visited 
+            if(visited.find(adjVector[i]) != visited.end()) {
+                auto next = vertexToNode.find(adjVector[i]);
 
-// adj_list instead! Error! 
-void BFS::bfs(const Graph &graph, Vertex source, Vertex destination) {
-    for(Vertex willVisit : graph.getAdjacent(source)) {
-        visited.push_back(make_pair(willVisit.getid(), false));
-    }
-
-    std::list<Vertex> q;
-    visited[0] = make_pair(source.getid(), true);
-    q.push_back(source);
-
-    
-    while(!q.empty()) {
-        source = q.front();
-        q.pop_front();
-
-        for(int i = 0; i < graph.getAdjacent(source).size(); i++) {
-            if(visited[i].second != true) {
-                visited[i].second = true;
-                q.push_back(graph.getAdjacent(source)[i]);
+                // map the "next" vertex if not already existed 
+                if (next == vertexToNode.end()) {
+                    Node* new_node = new Node(adjVector[i], 0, curr->curr);
+                    priorityQueue.push(new_node);
+                    vertexToNode[adjVector[i]] = new_node;
+                }
             }
         }
+
+        //set the vertices as visited 
+        visited[curr -> curr] = true;
     }
 }

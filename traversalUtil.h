@@ -1,59 +1,39 @@
-/**
- * create a traversal using BFS.
- */
+/* Implement a BFS traversal */
 
 #pragma once
 
-#include "graph.h"
-#include "edge.h
+#include "airgraph.h"
+#include "heap.h"
 #include "vertex.h"
-#include <iterator>
-#include <cmath>
-#include <list>
-#include <queue>
+#include "edge.h"
+#include "graph.h"
 
-struct vertex {
-    int index;
-    double weight;
-    vertex(int i = int(), double w = double()) : index(i), weight(w) {}
+#include <map>
+#include <vector>
+#include <unordered_map>
+#include <iostream> 
 
-};
-class BFS {
+
+
+class traversal {
     public:
 
-        //BFS algorithm, add the airport for the traversal to visit
-        void bfs(Vertex source, Vertex destination);
-
-
-        //find the shortest path between all the vertices(airports)
-        void shortestPath(const Graph &graph, int v, string aid, Vertex source);
-
-
-        //check if the certain airport is visited
-        bool hasVisited(Vertex v);
-
-        //bfs traversal attempting to traverse all the vertices (airports)
-        void bfs(const Graph &graph, Vertex source, Vertex destination);
-
+        /** implement a bfs traversal
+         * @param graph - the airgraph from "airgraph.h"
+         * @param start - the starting vertex of the traversal
+         */
+        void bfs(Graph &graph, Vertex source);
 
     private:
-    
-        std::queue<vector<Vertex>> travelPath; //storing the airports(vertices) travelled
+        //store the visited vertices 
+        std::unordered_map<Vertex, bool> visited;
 
-        //stores the visited location
-        bool *visited;
+        //use heap as priority queue to find the nearest vertex for next iteration
+        heap priorityQueue;
 
-        //stores the distance between two vertices
-        vector<double> distBwVertices;
+        //the number of vertices in the graph
+        int numberOfVertices
 
-        std::priority_queue<Vertex> pq;
-
-        //keep track of whether an aiport is visted, first: airport id
-        std::vector<std::pair<string, bool>> visited;
-        
-       
-
-    
-
-        
+        //map the Vertex into Node in order to use heap as priority queue.
+        std::unordered_map<Vertex, Node*> vertexToNode;
 };
