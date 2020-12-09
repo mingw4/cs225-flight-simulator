@@ -1,4 +1,6 @@
 #include "Dijkstra.h"
+
+
 Dijkstra::Dijkstra(AirGraph airgraph, const Vertex &src) {
     graph = airgraph.getGraph();
     source = src;
@@ -9,14 +11,14 @@ void Dijkstra::buildMap() {
     store[source] = start;
     pq_.push(start);
     while (!pq_.empty()) {
-        Node* curr = pq_.pop();
+        Node* curr = pq_.top(); pq_.pop();
         vector<Vertex> adja = graph.getAdjacent(curr->curr);
         for (unsigned i = 0; i < adja.size(); i++) {
             // if the Vectex has been visited before
             if (visited.find(adja[i]) != visited.end()) {
                 continue;
             }
-            double dist = getDistance(curr->curr, adja[i]) + curr->dist;
+            double dist = 1.0; //getDistance(curr->curr, adja[i]) + curr->dist;
             auto next = store.find(adja[i]);
             // if haven't calculate distance of the Vertex before
             if (next == store.end()) {

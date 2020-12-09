@@ -1,13 +1,10 @@
-//@author:: Bohan Liu
+// @author: 
 
-
-
-#include "Dijkstra.h"
 
 #include <iostream>
+#include "Dijkstra.h"
 using std::cout;
 using std::endl;
-
 
 
 int main(int argc,  char* argv[]) {

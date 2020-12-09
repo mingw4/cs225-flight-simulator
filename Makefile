@@ -2,7 +2,7 @@ CXX = clang++
 
 LD = clang++
 
-OBJS = graph.o airgraph.o Dijkstra.o heap.o
+OBJS = graph.o airgraph.o Dijkstra.o Landmark.o
 
 
 
@@ -10,14 +10,14 @@ WARNINGS = -pedantic -Wall -Werror -Wfatal-errors -Wextra -Wno-unused-parameter 
 
 CXXFLAGS += $(CS225) -Wno-return-stack-address -std=c++1y -stdlib=libc++ -O0 $(WARNINGS) $(DEPFILE_FLAGS) -g -c
 
-LDFLAGS += $(CS225) -std=c++1y -stdlib=libc++ -lc++abi
+LDFLAGS += $(CS225) -std=c++1y -stdlib=libc++ -lc++abi 
 
 
 
-all : $(OBJS)
+all : $(OBJS) main.o
 	$(CXX) $(LDFLAGS) $(OBJS) main.o -o main
 
-test : $(OBJS)
+test : $(OBJS) test.o
 	$(CXX) $(LDFLAGS) $(OBJS) test.o -o test
 
 test.o : test.cpp
@@ -31,9 +31,9 @@ airgraph.o : airgraph.cpp
 
 Dijkstra.o : Dijkstra.cpp
 	$(CXX) $(CXXFLAGS) Dijkstra.cpp
+
 main.o : main.cpp
 	$(CXX) $(CXXFLAGS) main.cpp
 
-heap.o : heap.cpp
-	$(CXX) $(CXXFLAGS) heap.cpp
- 
+Landmark.o : Landmark.cpp
+	$(CXX) $(CXXFLAGS) Landmark.cpp

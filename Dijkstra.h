@@ -1,5 +1,4 @@
 #pragma once
-
 #include <iostream>
 #include <algorithm>
 #include <map>
@@ -8,14 +7,12 @@
 #include <cmath>
 #include <cstdlib>
 #include <vector>
-#include <map>
-
 #include "airgraph.h"
 #include "vertex.h"
 #include "edge.h"
 #include "Node.h"
-#include "heap.h"
 #include <unordered_map>
+
 
 using std::vector;
 
@@ -56,7 +53,7 @@ using std::vector;
         Graph graph;
         Vertex source;
         //find the nearnest point to run in next iteration
-        heap pq_;
+        priority_queue<Node*, vector<Node*>, greater<Node*>> pq_;
         //store visited points
         unordered_map<Vertex, bool> visited;
         //mapped from Vertex to Node
