@@ -8,6 +8,8 @@
 #include <vector>
 #include <math.h>
 #include <iostream>
+#include <stddef.h>
+
 #include "Node.cpp"
 using namespace std;
 
@@ -21,7 +23,7 @@ using namespace std;
  * @author Chase Geigle
  * @date Fall 2012
  */
-// template <class T, class Compare = std::less<T>>
+//template <class T, class Compare = std::less<T>>
 class heap
 {
   public:
@@ -126,7 +128,7 @@ class heap
      * `higherPriority(a, b) = true` (`a < b`, so `a` has higher priority) and
      * `higherPriority(b, a) = false` (`b > a`, so `b` has lower priority)
      */
-    Node* higherPriority;
+    //Node* higherPriority;
 
     /**
      * Helper function that returns the index of the left child of a

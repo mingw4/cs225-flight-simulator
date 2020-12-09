@@ -9,7 +9,7 @@ using std::ios;
 using std::ifstream;
 using std::string;
 //Dis calculation according to lat & lng
-double getDistance(Vertex n1, Vertex n2)
+double distance(Vertex n1, Vertex n2)
 {	
 
 	const double t = 0.017453292519943295;
@@ -103,7 +103,7 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 			Vertex dest = vertice[sv[5]];
 			//std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
 			//distance based weight
-			double w = getDistance(source, dest);
+			double w = distance(source, dest);
 			//calculate cruise time
 			w /= 850;
 			w += 2;

@@ -1,7 +1,9 @@
 //@author:: Bohan Liu
 
 
-#include "airgraph.h"
+
+#include "Dijkstra.h"
+
 #include <iostream>
 using std::cout;
 using std::endl;
@@ -69,9 +71,7 @@ int main(int argc,  char* argv[]) {
 	}
 
 
-
-	Graph g = a.getGraph();
-
-	g.showStats();
+	Dijkstra d(a, source);
+	vector<Edge> ev = d.shortestPathTo(end);
 	return 0;
 }

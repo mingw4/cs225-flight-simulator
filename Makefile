@@ -2,7 +2,7 @@ CXX = clang++
 
 LD = clang++
 
-OBJS = graph.o
+OBJS = graph.o airgraph.o Dijkstra.o heap.o
 
 
 
@@ -14,11 +14,11 @@ LDFLAGS += $(CS225) -std=c++1y -stdlib=libc++ -lc++abi
 
 
 
-all : graph.o airgraph.o main.o
-	$(CXX) $(LDFLAGS) graph.o airgraph.o main.o -o main
+all : $(OBJS)
+	$(CXX) $(LDFLAGS) $(OBJS) main.o -o main
 
-test : graph.o airgraph.o test.o
-	$(CXX) $(LDFLAGS) graph.o airgraph.o test.o -o test
+test : $(OBJS)
+	$(CXX) $(LDFLAGS) $(OBJS) test.o -o test
 
 test.o : test.cpp
 	 $(CXX) $(CXXFLAGS) test.cpp
@@ -29,6 +29,11 @@ graph.o : graph.cpp edge.h vertex.h
 airgraph.o : airgraph.cpp
 	$(CXX) $(CXXFLAGS) airgraph.cpp
 
+Dijkstra.o : Dijkstra.cpp
+	$(CXX) $(CXXFLAGS) Dijkstra.cpp
 main.o : main.cpp
 	$(CXX) $(CXXFLAGS) main.cpp
+
+heap.o : heap.cpp
+	$(CXX) $(CXXFLAGS) heap.cpp
  

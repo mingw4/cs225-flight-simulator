@@ -9,11 +9,11 @@
 #include <cstdlib>
 #include <vector>
 #include <map>
+
 #include "airgraph.h"
-#include "airgraph.cpp"
 #include "vertex.h"
 #include "edge.h"
-#include "Node.cpp"
+#include "Node.h"
 #include "heap.h"
 #include <unordered_map>
 

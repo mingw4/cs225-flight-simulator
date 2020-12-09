@@ -1,7 +1,6 @@
 #pragma once
+
 #include "graph.h"
-
-
 class AirGraph {
 	private:
 		mutable std::unordered_map<string, Vertex> vertice;
