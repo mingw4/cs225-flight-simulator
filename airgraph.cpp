@@ -8,6 +8,8 @@
 using std::ios;
 using std::ifstream;
 using std::string;
+using std::cout;
+using std::endl;
 //Dis calculation according to lat & lng
 double distance(Vertex n1, Vertex n2)
 {	
@@ -63,6 +65,7 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 				lat = std::stod(sv[6]);
 				lnt = std::stod(sv[7]);
 			} catch (std::invalid_argument) {
+				cout << sv[6] << sv[7] << endl;
 				continue;
 			}
 			
