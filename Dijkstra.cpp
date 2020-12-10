@@ -47,6 +47,7 @@ double Dijkstra::distanceTo(Vertex &dest) {
 
 vector<Edge> Dijkstra::shortestPathTo(const Vertex &dest) {
     vector<Edge> toReturn;
+    // if given destination is unreachable
     if (visited.find(dest) == visited.end()) {
         return toReturn;
     }
