@@ -2,7 +2,7 @@ CXX = clang++
 
 LD = clang++
 
-OBJS = graph.o airgraph.o heap.o Dijkstra.o LandmarkPath.o
+OBJS = graph.o airgraph.o heap.o Dijkstra.o LandmarkPath.o traversalUtil.O
 
 
 
@@ -40,6 +40,10 @@ main.o : main.cpp
 
 LandmarkPath.o : LandmarkPath.cpp 
 	$(CXX) $(CXXFLAGS) LandmarkPath.cpp
+
+traversalUtil.O : traversalUtil.cpp
+	$(CXX) $(CXXFLAGS) traversalUtil.cpp
+
 data :
 	clang++ test_data_gen.cpp -o data_gen
 	./data_gen

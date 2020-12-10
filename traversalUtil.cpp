@@ -1,5 +1,8 @@
 #include "traversalUtil.h"
 
+#include <list>
+#include <iostream>
+
 
 
 /** implement a bfs traversal
@@ -9,22 +12,25 @@
 
 void traversal::bfs(Graph &graph, Vertex source) {
 
-    priorityQueue.push(source);
+    std::list<Vertex> priorityQueue;
+    priorityQueue.push_back(source);
+    visited[source] = true;
 
     while(!priorityQueue.empty()) {
-        Vertex curr = priorityQueue.top();
-        priorityQueue.pop();
+        Vertex curr = priorityQueue.front();
+        priorityQueue.pop_front();
         vector<Vertex> adjVector = graph.getAdjacent(curr);
         for(std::size_t i = 0; i < adjVector.size(); i++) {
 
             //if this vertex hasn't been visited 
             if(visited.find(adjVector[i]) == visited.end()) {
                 Vertex next = adjVector[i];
-                priorityQueue.push(next);
+                priorityQueue.push_back(next);
                 visited[next] = true;
             }
         }
     }
+    
 }
 
 

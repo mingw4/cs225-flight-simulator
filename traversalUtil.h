@@ -32,9 +32,9 @@ class traversal {
         std::unordered_map<Vertex, bool> visited;
 
         //use heap as priority queue to find the nearest vertex for next iteration
-        std::priority_queue<Vertex> priorityQueue;
+        // std::priority_queue<Vertex> priorityQueue;
 
         //the number of vertices in the graph
-        int numberOfVertices;
+        // int numberOfVertices;
 
 };
