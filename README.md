@@ -4,7 +4,7 @@
   
 #### Command:  
 * ```make``` generates an executable named main in ```./```directory.
-* ```make test``` generates a test executable named main in ```./```directory.
+* ```make test``` generates a test executable named test in ```./```directory.
 * ```make data``` generates made-up test data  in ```./```directory.
 * ```make clean``` removes all object files in ```./```directory.
 ---
