@@ -12,7 +12,15 @@ Week 2: Starting graph implentation and data reading --Bohan Liu
 			The weight of the path(Weight of graph edges) is stored in the weight of the route. (Beta, for test usage.)   --Ming Wang
 			Completed function: input the latitude and longitude coordinates of two airports, 
 			and output a line connecting the two airports. --Ming Wang
-			So the next task is to use the shortest path algorithm to find the points passing between airports. --Ming Wang
+	
+	So the next task is to use the shortest path algorithm to find the points passing between airports. --Ming Wang
+	
+	
+	Bohan started to work on data reading and completed a working but untested graph implementation. 
+	Grace began to work on BFS traversal. She encountered an issue not knowing what exactly was required 
+	(most of the time was spent figuring out what was expected). Ming worked on the "dat file", which he read, 
+	cleaned, and weighted the data according to the airport's latitude and longitude. He completed the function 
+	that produces graphical output drawing lines connecting airports. 
 Week 3:
 	Continue working on BFS generic functions -- Grace Chang
 	Revised weight function by a integrating stops, airspeed and improve performance. --Bohan Liu
