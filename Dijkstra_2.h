@@ -10,8 +10,6 @@
 
 
 #include "airgraph.h"
-#include "vertex.h"
-#include "edge.h"
 #include "Node.h"
 #include "heap.h"
 #include <unordered_map>
@@ -21,7 +19,7 @@ using std::vector;
 using std::priority_queue;
     class Dijkstra {
     public:
-        Dijkstra(AirGraph airgraph, const Vertex &src);
+        Dijkstra(AirGraph &airgraph, const Vertex &src);
         // find distance from source to dest
         double distanceTo(Vertex &dest);
         ~Dijkstra();

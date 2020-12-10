@@ -61,6 +61,7 @@ bool Graph::insertEdge(Vertex source, Vertex destination, double w, string lbl, 
 	}
 	if (adj_list.find(source) == adj_list.end()) {
 		printf("non-exist source");
+		std::cout << source.getid() << std::endl;
 		adj_list[source] = unordered_map<Vertex, Edge>();
 	}
 	adj_list[source][destination] = Edge(source, destination, w, lbl, stop);

@@ -1,4 +1,5 @@
-Dijkstra::Dijkstra(AirGraph airgraph, const Vertex &src) {
+#include "Dijkstra_2.h"
+Dijkstra::Dijkstra(AirGraph &airgraph, const Vertex &src) {
     graph = airgraph.getGraph();
     source = src;
     buildMap();

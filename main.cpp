@@ -58,8 +58,8 @@ int main(int argc,  char* argv[]) {
 		cout << "Airport not in data or malformatted airport entry: " << s << endl;
 		return -1;
 	}
-	Vertex source = a.getVertex(start);
-	Vertex dest = a.getVertex(end);
+	Vertex source;
+	Vertex dest;
 	try {
 		source  = a.getVertex(start);
 		dest = a.getVertex(end);
