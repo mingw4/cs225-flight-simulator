@@ -40,7 +40,7 @@ void Dijkstra::buildMap() {
 double Dijkstra::distanceTo(Vertex &dest) {
     // if given destination is unreachable
     if (visited.find(dest) == visited.end()) {
-        return -1.0;
+        return 10000.0;
     }
     return store.find(dest)->second->dist;
 }

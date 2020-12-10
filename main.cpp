@@ -71,8 +71,10 @@ int main(int argc,  char* argv[]) {
 
 	Dijkstra d(a, source);
 	vector<Edge> ev = d.shortestPathTo(dest);
+	cout << "Result: " << endl;
+	
 	for (Edge &e : ev) {
-		cout << e.source.getiata() <<endl;
+		cout <<e.source.getiata() << "->" << e.dest.getiata() <<endl;
 	}
 	return 0;
 }
