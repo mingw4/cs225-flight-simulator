@@ -45,7 +45,7 @@ Week4:
 	Deleting dead codes and update makefile. --Ming Wang
 	Auto test data generator is now available, use ```make data``` to make the data --Bohan Liu
 	Adding functionality that output the airline code and supported aircraft types for each edge --Bohan Liu
-	
+	Rewrite README.md, so it's more instructional.
 
 
 Bohan updated the main file that accepted arguments and error catching in initialization. He also revised 
