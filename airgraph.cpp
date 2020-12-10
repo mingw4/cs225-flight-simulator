@@ -16,10 +16,13 @@ double AirGraph::distance(Vertex n1, Vertex n2)
 
 	const double t = 0.017453292519943295;
     double longitude1=n1.getLongtitude(), latitude1=n1.getLatitude(), longitude2=n2.getLongtitude(), latitude2=n2.getLatitude();
-    //lat
-	
-    //difference of lat /rad
-	
+
+    // code used to test Dijkstra
+	// double a = latitude1 - latitude2;
+	// double b = longitude1 - longitude2;
+	// return pow(a, 2) + pow(b, 2);
+
+	//difference of lat /rad
 	double lat1 = latitude1 * t;
 	double lat2 = latitude2 * t;
     double  a = lat1 - lat2;
@@ -108,7 +111,7 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 			//std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
 			//distance based weight
 			double w = distance(source, dest);
-			//calculate cruise time
+			// calculate cruise time
 			w /= 850;
 			//reserve 1.5 hour for take off and landing.
 			w += 1.5;
@@ -116,8 +119,8 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 			// add pseudo stop time if needed
 			if (std::stoi(sv[7]) > 0) w+=2;
 
-			//std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
-			//std::cout << "estimated travel time:" << w <<std::endl;
+			std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
+			std::cout << "estimated travel time:" << w <<std::endl;
 
 			g.insertEdge(source,dest,w, sv[0] + "--" + sv[8],stops);
 		}	

@@ -20,6 +20,7 @@ int main(int argc,  char* argv[]) {
 	bool landmark = false;
 	for (int i = 1; i < argc; i++) {
 		string x = argv[i];
+		cout << x << endl;
 		if (argv[i][0] == '-') {
 			if (x == "-l") {
 				landmark = true;
@@ -50,7 +51,6 @@ int main(int argc,  char* argv[]) {
 			}
 		}
 	}
-
 	AirGraph a;
 	try {
 		a = AirGraph(ports, routes);
@@ -86,6 +86,7 @@ int main(int argc,  char* argv[]) {
 		for (Edge &e : ev) {
 			cout <<e.source.getiata() << "->" << e.dest.getiata() << " with the following choice of airline and aircraft: "<<endl;
 			cout <<e.label << endl;
+			cout << "gg" << endl;
 		}
 	} else {
 		vector<Vertex> vv;	
