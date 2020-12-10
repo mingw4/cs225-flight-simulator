@@ -10,50 +10,32 @@
 
 
 #include "airgraph.h"
-#include "vertex.h"
-#include "edge.h"
 #include "Node.h"
-// #include "heap.h"
+#include "heap.h"
 #include <unordered_map>
 
 
 using std::vector;
 using std::priority_queue;
-
-
-    // /**
-    //  * vertex used only for dijkstra algorithm, as a helper for running dijkstra instead of using Airport
-    //  */
-    struct WeightedVertex {
-        int index;
-        double weight;
-
-        WeightedVertex(int i = int(), double w = double()) : index(i), weight(w) {}
-
-        friend
-        bool operator<(const WeightedVertex &x, const WeightedVertex &y) {
-            return x.weight > y.weight;
-        }
-
-        friend bool
-        operator>(const WeightedVertex &x, const WeightedVertex &y) {
-            return x.weight < y.weight;
-        }
-    };
-
     class Dijkstra {
     public:
-        Dijkstra(AirGraph &graph, const Vertex &src);
-
-        double distanceTo(int v);
-
+        Dijkstra(AirGraph &airgraph, const Vertex &src);
+        // find distance from source to dest
+        double distanceTo(Vertex &dest);
+        ~Dijkstra();
+        // find all edges in path from source to dest
         vector<Edge> shortestPathTo(const Vertex &dest);
 
-    private:
-        vector<Edge> predecessor_;
-        vector<double> distanceTo_;
-        priority_queue<WeightedVertex> pq_;
-        const double infinite_ = std::numeric_limits<double>::infinity();
 
-        bool hasPathTo(int v);
+    private:
+        Graph graph;
+        Vertex source;
+        //find the nearnest point to run in next iteration
+        heap pq_;
+        //store visited points
+        unordered_map<Vertex, bool> visited;
+        //mapped from Vertex to Node
+        std::unordered_map<Vertex, Node*> store;
+        // find distance from source to every point
+        void buildMap();     
     };

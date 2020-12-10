@@ -22,3 +22,6 @@ Week4:
 	Update main.cpp to accept arguments. Add error catching in initialization. --Bohan Liu
 	Revised vertex, airgraph to fit other implementations. --Bohan Liu
 	Update the traversalUtil (clean up) --Grace Chang
+	New version of LandmarkPath. --Bohan Liu
+	Cleaning the previous version LandmarkPath which has unsolvable seg falut issues. --Ming Wang
+	Deleting dead codes and update makefile. --Ming Wang

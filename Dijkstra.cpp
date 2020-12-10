@@ -1,49 +1,66 @@
 #include "Dijkstra.h"
-
-using std::cout;
-using std::endl;
-using std::stoi;
-
-
-Dijkstra::Dijkstra(AirGraph &graph, const Vertex &src) {
-    int fromId = stoi(src.getid());
-    distanceTo_.resize(graph.vSize(), infinite_);
-    predecessor_.resize(graph.vSize());
-
-    distanceTo_[fromId] = 0;
-    pq_.push(WeightedVertex(fromId, 0));
+Dijkstra::Dijkstra(AirGraph &airgraph, const Vertex &src) {
+    graph = airgraph.getGraph();
+    source = src;
+    buildMap();
+}
+void Dijkstra::buildMap() {
+    Node* start = new Node(source, 0, Vertex());
+    store[source] = start;
+    pq_.push(start);
     while (!pq_.empty()) {
-        int index = pq_.top().index;
-        pq_.pop();
-        for (const Vertex &dest : graph.getAdjacent(src)) {
-			Edge route = graph.getEdge(src, dest);
-            int v = stoi(route.dest.getid());
-            if (distanceTo_[v] > distanceTo_[index] + route.weight) {
-                distanceTo_[v] = distanceTo_[index] + route.weight;
-                predecessor_[v] = route;
-                pq_.push(WeightedVertex(v, distanceTo_[v]));
+        Node* curr = pq_.pop();
+        vector<Vertex> adja = graph.getAdjacent(curr->curr);
+        for (unsigned i = 0; i < adja.size(); i++) {
+            // if the Vectex has been visited before
+            if (visited.find(adja[i]) != visited.end()) {
+                continue;
+            }
+            double dist = curr->dist + graph.getEdge(curr->curr, adja[i]).weight;
+            // double dist = distance(curr->curr, adja[i]) + curr->dist;
+            auto next = store.find(adja[i]);
+            // if haven't calculate distance of the Vertex before
+            if (next == store.end()) {
+                Node* new_node = new Node(adja[i], dist, curr->curr);
+                pq_.push(new_node);
+                store[adja[i]] = new_node;
+            } else {
+                // if smaller distance found
+                if (next->second->dist > dist) {
+                    next->second->dist = dist;
+                    next->second->pre = curr->curr;
+                }
             }
         }
+        // set current Vertex visited
+        visited[curr->curr] = true;
     }
 }
 
-    double Dijkstra::distanceTo(int v) {
-        return distanceTo_[v];
+double Dijkstra::distanceTo(Vertex &dest) {
+    // if given destination is unreachable
+    if (visited.find(dest) == visited.end()) {
+        return 10000.0;
     }
+    return store.find(dest)->second->dist;
+}
 
-    bool Dijkstra::hasPathTo(int v) {
-        return distanceTo_[v] < infinite_;
+vector<Edge> Dijkstra::shortestPathTo(const Vertex &dest) {
+    vector<Edge> toReturn;
+    if (visited.find(dest) == visited.end()) {
+        return toReturn;
     }
-
-    vector<Edge> Dijkstra::shortestPathTo(const Vertex &dest) {
-        int v = stoi(dest.getid());
-        vector<Edge> path;
-        if (hasPathTo(v)) {
-            for (Edge e = predecessor_[v]; stoi(e.source.getid()) != 0; e = predecessor_[stoi(e.source.getid())]) {
-                path.push_back(e);
-            }
-        }
-        std::reverse(path.begin(), path.end());
-        return path;
+    Vertex curr = dest;
+    while (curr != source) {
+        Node* curr_node = store.find(curr)->second;
+        Vertex prev = curr_node->pre;
+        toReturn.insert(toReturn.begin(), graph.getEdge(prev, curr));
+        curr = prev;
     }
-
+    return toReturn;
+}
+Dijkstra::~Dijkstra() {
+    for (auto i = store.begin(); i != store.end(); i++) {
+        delete i->second;
+    }
+}

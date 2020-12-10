@@ -2,8 +2,7 @@
 
 
 #include <iostream>
-//#include "LandmarkPath.h"
-#include "Lmp.h"
+#include "LandmarkPath.h"
 using std::cout;
 using std::cin;
 using std::endl;
