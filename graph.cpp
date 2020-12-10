@@ -56,7 +56,7 @@ void Graph::insertVertex(Vertex v) {
 bool Graph::insertEdge(Vertex source, Vertex destination, double w, string lbl, int stop) {
 	if (adj_list.find(source) != adj_list.end() 
 		&& adj_list[source].find(destination) != adj_list[source].end()) {
-		//printf("duplicate!");
+		adj_list[source][destination].label += ("\n" + lbl);
 		return false;
 	}
 	if (adj_list.find(source) == adj_list.end()) {

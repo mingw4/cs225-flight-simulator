@@ -85,7 +85,8 @@ int main(int argc,  char* argv[]) {
 		vector<Edge> ev = d.shortestPathTo(dest);
 		cout << "Result: " << endl;
 		for (Edge &e : ev) {
-			cout <<e.source.getiata() << "->" << e.dest.getiata() <<endl;
+			cout <<e.source.getiata() << "->" << e.dest.getiata() << " with the following choice of airline and aircraft: "<<endl;
+			cout <<e.label << endl;
 		}
 	} else {
 		vector<Vertex> vv;	
@@ -111,7 +112,8 @@ int main(int argc,  char* argv[]) {
 		lmp.find(ev, source, dest, vv);
 		cout << "Result: " << endl;
         for (Edge &e : ev) {
-            cout <<e.source.getiata() << "->" << e.dest.getiata() <<endl;
+            cout <<e.source.getiata() << "->" << e.dest.getiata() << " with the following choice of airline and aircraft: "<<endl;
+			cout <<e.label << endl;
         }
 	}
 	
