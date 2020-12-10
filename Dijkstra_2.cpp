@@ -16,7 +16,7 @@ void Dijkstra::buildMap() {
             if (visited.find(adja[i]) != visited.end()) {
                 continue;
             }
-            double dist = -1.0;
+            double dist = curr->dist + graph.getEdge(curr->curr, adja[i]).weight;
             // double dist = distance(curr->curr, adja[i]) + curr->dist;
             auto next = store.find(adja[i]);
             // if haven't calculate distance of the Vertex before
