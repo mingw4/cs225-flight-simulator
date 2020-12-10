@@ -78,7 +78,7 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 			Vertex v(sv[0], lat, lnt, sv[4]);
 			g.insertVertex(v);
 			vertice[sv[0]] = v;
-			std::cout << sv[4] << std::endl;
+			//std::cout << sv[4] << std::endl;
 			codetable[sv[4]] = sv[0];
 		}
 	} else {

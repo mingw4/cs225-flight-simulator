@@ -91,7 +91,7 @@ int main(int argc,  char* argv[]) {
 		vector<Vertex> vv;	
 		string x;
 		while (true) {
-			cout << "Select Landmark: (Press enter to quit or submit)" << endl;
+			cout << "Select Landmark: (Finish with \"X\")" << endl;
 			cin >> x;
 			if (x == "X") {
 				cout << "Calculating..." << endl;
