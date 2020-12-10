@@ -4,6 +4,7 @@
 #include <iostream>
 #include "LandmarkPath.h"
 using std::cout;
+using std::cin;
 using std::endl;
 
 
@@ -15,9 +16,15 @@ int main(int argc,  char* argv[]) {
 	string routes = "./routes.dat.txt";
 	string start = "\"PEK\"";
 	string end = "\"JFK\"";
+	string pass = "";
+	bool landmark = false;
 	for (int i = 1; i < argc; i++) {
 		string x = argv[i];
 		if (argv[i][0] == '-') {
+			if (x == "-l") {
+				landmark = true;
+				continue;
+			}
 			if (i < argc - 1) {
 				if (argv[i+1][0] == '-') {
 					cout << "Bad argument for flag: " << argv[i] << ". value required!"<< endl;
@@ -43,6 +50,7 @@ int main(int argc,  char* argv[]) {
 			}
 		}
 	}
+
 	AirGraph a;
 	try {
 		a = AirGraph(ports, routes);
@@ -60,6 +68,7 @@ int main(int argc,  char* argv[]) {
 	}
 	Vertex source;
 	Vertex dest;
+	Vertex mark;
 	try {
 		source  = a.getVertex(start);
 		dest = a.getVertex(end);
@@ -69,12 +78,37 @@ int main(int argc,  char* argv[]) {
 	}
 
 
-	Dijkstra d(a, source);
-	vector<Edge> ev = d.shortestPathTo(dest);
-	cout << "Result: " << endl;
 	
-	for (Edge &e : ev) {
-		cout <<e.source.getiata() << "->" << e.dest.getiata() <<endl;
+	if (!landmark) {
+		Dijkstra d(a, source);
+		vector<Edge> ev = d.shortestPathTo(dest);
+		cout << "Result: " << endl;
+		for (Edge &e : ev) {
+			cout <<e.source.getiata() << "->" << e.dest.getiata() <<endl;
+		}
+	} else {
+		vector<Vertex> vv;	
+		string x;
+		while (true) {
+			cout << "Select Landmark: (Press enter to quit or submit)" << endl;
+			cin >> x;
+			if (x == "") break;
+			x = "\"" + x + "\"";
+			try {
+				Vertex v = a.getVertex(a.getid(x));
+				vv.push_back(v);
+			} catch(string s) {
+				cout << "Invalid port IATA: "<< s << endl;
+			}
+			
+		}
+		LandmarkPath lmp(a);
+		vector<Edge> ev =lmp.findWithDijkstra(source, dest, vv);
+		cout << "Result: " << endl;
+        for (Edge &e : ev) {
+            cout <<e.source.getiata() << "->" << e.dest.getiata() <<endl;
+        }
 	}
+	
 	return 0;
 }
