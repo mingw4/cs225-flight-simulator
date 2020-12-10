@@ -43,6 +43,8 @@ Week4:
 	New version of LandmarkPath. --Bohan Liu
 	Cleaning the previous version LandmarkPath which has unsolvable seg falut issues. --Ming Wang
 	Deleting dead codes and update makefile. --Ming Wang
+	Auto test data generator is now available, use ```make data``` to make the data --Bohan Liu
+	Adding functionality that output the airline code and supported aircraft types for each edge --Bohan Liu
 	
 
 
