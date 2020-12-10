@@ -58,8 +58,8 @@ int main(int argc,  char* argv[]) {
 		cout << "Airport not in data or malformatted airport entry: " << s << endl;
 		return -1;
 	}
-	Vertex source = Vertex(start);
-	Vertex dest = Vertex(end);
+	Vertex source = a.getVertex(start);
+	Vertex dest = a.getVertex(end);
 	try {
 		source  = a.getVertex(start);
 		dest = a.getVertex(end);
@@ -70,7 +70,7 @@ int main(int argc,  char* argv[]) {
 
 
 	Dijkstra d(a, source);
-	vector<Edge> ev = d.shortestPathTo(end);
+	vector<Edge> ev = d.shortestPathTo(dest);
 	for (Edge &e : ev) {
 		cout << e.source.getiata() <<endl;
 	}

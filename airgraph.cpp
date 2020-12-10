@@ -11,7 +11,7 @@ using std::string;
 using std::cout;
 using std::endl;
 //Dis calculation according to lat & lng
-double distance(Vertex n1, Vertex n2)
+double AirGraph::distance(Vertex n1, Vertex n2)
 {	
 
 	const double t = 0.017453292519943295;

@@ -16,4 +16,5 @@ class AirGraph {
 		vector<Vertex> getAdjacent(const Vertex& v);
 		Edge getEdge(const Vertex& s, const Vertex& e);
 		int vSize() const;
+		double distance(Vertex n1, Vertex n2);
 };

@@ -1,5 +1,4 @@
 #include "Dijkstra.h"
-#include <queue>
 
 using std::cout;
 using std::endl;

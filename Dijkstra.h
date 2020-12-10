@@ -13,6 +13,7 @@
 #include "vertex.h"
 #include "edge.h"
 #include "Node.h"
+// #include "heap.h"
 #include <unordered_map>
 
 
@@ -20,9 +21,9 @@ using std::vector;
 using std::priority_queue;
 
 
-    /**
-     * vertex used only for dijkstra algorithm, as a helper for running dijkstra instead of using Airport
-     */
+    // /**
+    //  * vertex used only for dijkstra algorithm, as a helper for running dijkstra instead of using Airport
+    //  */
     struct WeightedVertex {
         int index;
         double weight;
