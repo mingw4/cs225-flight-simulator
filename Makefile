@@ -45,3 +45,6 @@ LandmarkPath.o : LandmarkPath.cpp
 data :
 	clang++ test_data_gen.cpp -o data_gen
 	./data_gen
+
+clean : 
+	rm *.o
