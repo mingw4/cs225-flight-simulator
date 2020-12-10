@@ -1,9 +1,10 @@
-Week 1: Finished team contract and goal. Assigned work to each member. 
-	The first week was intended for us to get familiar with the project. 
-	We started with a lot of discussion about what we wanted the project to be. 
-	We didn't implement any functional code in the first week. 
-	However, we came up with a structure for the project (the design of the project). 
-	We completed the team contracts and assigned work to each team member.  
+Week 1: 
+The first week was intended for us to get familiar with the project. We started with a lot of 
+discussion about what we wanted the project to be. We didn't implement any functional code in the first week. 
+However, we came up with a structure for the project (the design of the project). We completed the team 
+contracts and assigned work to each team member.  
+	
+	
 Week 2: Starting graph implentation and data reading --Bohan Liu
         Starting traversal implementation --Grace Chang
 		Completed a working (but untested) graph implementation. With weight assignment left todo. --Bohan Liu
