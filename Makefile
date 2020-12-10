@@ -2,7 +2,7 @@ CXX = clang++
 
 LD = clang++
 
-OBJS = graph.o airgraph.o heap.o Dijkstra.o LandmarkPath.o
+OBJS = graph.o airgraph.o heap.o Dijkstra.o Lmp.o
 
 
 
@@ -40,7 +40,8 @@ main.o : main.cpp
 
 LandmarkPath.o : LandmarkPath.cpp 
 	$(CXX) $(CXXFLAGS) LandmarkPath.cpp
-
+Lmp.o : Lmp.cpp
+	$(CXX) $(CXXFLAGS) Lmp.cpp
 
 data :
 	clang++ test_data_gen.cpp -o data_gen

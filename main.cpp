@@ -2,7 +2,8 @@
 
 
 #include <iostream>
-#include "LandmarkPath.h"
+//#include "LandmarkPath.h"
+#include "Lmp.h"
 using std::cout;
 using std::cin;
 using std::endl;
@@ -92,7 +93,10 @@ int main(int argc,  char* argv[]) {
 		while (true) {
 			cout << "Select Landmark: (Press enter to quit or submit)" << endl;
 			cin >> x;
-			if (x == "") break;
+			if (x == "X") {
+				cout << "Calculating..." << endl;
+				break;
+			}
 			x = "\"" + x + "\"";
 			try {
 				Vertex v = a.getVertex(a.getid(x));
@@ -100,10 +104,11 @@ int main(int argc,  char* argv[]) {
 			} catch(string s) {
 				cout << "Invalid port IATA: "<< s << endl;
 			}
-			
 		}
 		LandmarkPath lmp(a);
-		vector<Edge> ev =lmp.findWithDijkstra(source, dest, vv);
+
+		vector<Edge> ev;
+		lmp.find(ev, source, dest, vv);
 		cout << "Result: " << endl;
         for (Edge &e : ev) {
             cout <<e.source.getiata() << "->" << e.dest.getiata() <<endl;
