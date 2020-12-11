@@ -22,10 +22,11 @@ class traversal {
     public:
 
         /** implement a bfs traversal
+         * @param vw - a vector of vertex storing the BFS traversal
          * @param graph - the airgraph from "airgraph.h"
          * @param start - the starting vertex of the traversal
          */
-        void bfs(Graph &graph, Vertex source);
+        void bfs(vector<Vertex> &vv, Graph &graph, Vertex source);
 
     private:
         //store the visited vertices 

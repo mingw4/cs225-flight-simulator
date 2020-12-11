@@ -119,8 +119,13 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 			// // add pseudo stop time if needed
 			// if (std::stoi(sv[7]) > 0) w+=2;
 
+<<<<<<< HEAD
 			// std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
 			// std::cout << "estimated travel time:" << w <<std::endl;
+=======
+			//std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
+			//std::cout << "estimated travel time:" << w <<std::endl;
+>>>>>>> 344a272f53a45357f2522d92c97e494f7741aa83
 
 			g.insertEdge(source,dest,w, sv[0] + "--" + sv[8],stops);
 		}	

@@ -14,6 +14,7 @@ class Vertex {
 		Vertex(string aid, double la, double lo, string i)
 			: lat(la), lnt(lo), id(aid),iata(i) { }
 		Vertex() : lat(91.0), lnt(181.0),id(""),iata("") { }
+		Vertex(string aid) : lat(91.0), lnt(181.0),id(aid),iata("") { }
 		string getid() const {
 			return id;
 		}
