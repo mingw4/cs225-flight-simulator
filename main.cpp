@@ -86,7 +86,6 @@ int main(int argc,  char* argv[]) {
 		for (Edge &e : ev) {
 			cout <<e.source.getiata() << "->" << e.dest.getiata() << " with the following choice of airline and aircraft: "<<endl;
 			cout <<e.label << endl;
-			cout << "gg" << endl;
 		}
 	} else {
 		vector<Vertex> vv;	
