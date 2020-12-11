@@ -10,7 +10,7 @@ int main() {
 	out1.open("./autoroute.dat.txt");
 	
 	for (int i = 0; i < 10; i ++) {
-		for (int j = 0; j < 8; j++) {
+		for (int j = 0; j < 10; j++) {
 			out << i << "00"<< j << ",";
 			out << "\"" << i << "\",";
 			out << "\"" << j << "\",";
@@ -25,7 +25,7 @@ int main() {
 			out << "\"" << "Test/Test" << "\",";
 			out << "\"" << "airport" << "\",";
 			out << "\"" << "Test" << "\""<<endl;
-			for (int k = 0; k < 8; k ++) {
+			for (int k = 0; k < 10; k ++) {
 				if (k == j) continue;
 				out1 << "TE" << i << ",";
 				out1 << "00" << i << ",";

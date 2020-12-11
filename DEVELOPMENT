@@ -47,8 +47,15 @@ Week4:
 	Adding functionality that output the airline code and supported aircraft types for each edge --Bohan Liu
 	Rewrite README.md, so it's more instructional.
 
+	Add test cases for Dijkstra, and debug Dijkstra
+	run test cases with command
+	-- ./main -LFports "./autoport.dat.txt" -LFroutes "./Dijkstra_testsimple_route.dat.txt" -from "T00" -to "T04"
+	-- ./main -LFports "./autoport.dat.txt" -LFroutes "./Dijkstra_testcomplex1_route.dat.txt" -from "T00" -to "T15"
+	-- ./main -LFports "./autoport.dat.txt" -LFroutes "./Dijkstra_testcomplex2_route.dat.txt" -from "T16" -to "T15"
+													-- Jiale Ning
+
 
 Bohan updated the main file that accepted arguments and error catching in initialization. He also revised 
 "vertex" and "airgraph" to accommodate other implementations. Grace deleted all the unnecessary helper functions 
 and edited the "traversalUtil". Ming updated Makefile and cleared the codes. Ming cleaned the previous version of 
-LandmarkPath due to unresolved issues, which Bohan created a new version of landmarkPath. 
+LandmarkPath due to unresolved issues, which Bohan created a new version of landmarkPath. Jiale implemented Dijkstra algorithm
