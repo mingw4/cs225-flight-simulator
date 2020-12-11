@@ -1,12 +1,44 @@
 #include "airgraph.h"
-<<<<<<< HEAD
 #include "LandmarkPath.h"
 #include <iostream>
 using namespace std;
 #include <vector>
+#include "traversalUtil.h"
 
 
 int main() {
+	// bfs test case
+	AirGraph a("./autoport.dat.txt", "./autoroute.dat.txt");
+	Graph g = a.getGraph();
+	traversal t;
+	vector<Vertex> vv;
+	t.bfs(vv, g, Vertex("0001"));
+	if (vv.size() != 100) return -1;
+	int level = 0;
+	for (Vertex & v : vv) {
+		// cout<<"Test 1" << endl;
+		int curr = std::stoi(v.getid()) / 1000;
+		if ( curr > level) {
+			level = curr;
+		}
+		if (level < curr) {
+			cout << "bfs error:" << "source: 0001" << endl;
+			cout << v.getid() << "after level: " << level;
+		}
+	}
+	vv.clear();
+	AirGraph a1("./autoport.dat.txt", "./traversal_test_route.dat.txt");
+	a1.getGraph().showStats();
+	for (int i = 0; i < 8; i++) {
+		t.bfs(vv, a1.getGraph(), Vertex("000" + std::to_string(i)));
+		if ((int) vv.size() != (8 - i)) {
+			cout << i << ": " << vv.size() <<endl;
+				return -1; 
+		}
+		vv.clear();
+	}
+	g.showStats();
+
 	cout << "Dijkstra test 1" << endl;
 	AirGraph a1("./autoport.dat.txt", "./Dijkstra_testsimple_route.dat.txt");
 	Vertex source1("0000", 0.0, 0.0, "TOO");
@@ -56,44 +88,4 @@ int main() {
 	}
 	// Graph g = a.getGraph();
 	// g.showStats();
-
-
-=======
-#include "traversalUtil.h"
-using std::cout;
-using std::endl;
-
-int main() {
-	AirGraph a("./autoport.dat.txt", "./autoroute.dat.txt");
-	Graph g = a.getGraph();
-	traversal t;
-	vector<Vertex> vv;
-	t.bfs(vv, g, Vertex("0001"));
-	if (vv.size() != 100) return -1;
-	int level = 0;
-	for (Vertex & v : vv) {
-		// cout<<"Test 1" << endl;
-		int curr = std::stoi(v.getid()) / 1000;
-		if ( curr > level) {
-			level = curr;
-		}
-		if (level < curr) {
-			cout << "bfs error:" << "source: 0001" << endl;
-			cout << v.getid() << "after level: " << level;
-		}
-	}
-	vv.clear();
-	AirGraph a1("./autoport.dat.txt", "./traversal_test_route.dat.txt");
-	a1.getGraph().showStats();
-	for (int i = 0; i < 8; i++) {
-		t.bfs(vv, a1.getGraph(), Vertex("000" + std::to_string(i)));
-		if ((int) vv.size() != (8 - i)) {
-			cout << i << ": " << vv.size() <<endl;
-				return -1; 
-		}
-		vv.clear();
-	}
-	g.showStats();
->>>>>>> 344a272f53a45357f2522d92c97e494f7741aa83
-	return 0;
 }
