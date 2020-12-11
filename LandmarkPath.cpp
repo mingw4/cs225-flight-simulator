@@ -63,7 +63,7 @@ void LandmarkPath::find(vector<Edge>& ev, Vertex& source, Vertex& dest, vector<V
 		for (int i = 0; i < (int) seq.size() - 1; i ++) {
 			sum += dist_map[vv[seq[i]]][vv[seq[i+1]]];
 			auto temp_path = path_map[vv[seq[i]]][vv[seq[i+1]]];
-
+			cout << sum << endl;
 			path.insert(path.end(), temp_path.begin(), temp_path.end());
 			if (sum > min) break;
 		}

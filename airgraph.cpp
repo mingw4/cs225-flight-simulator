@@ -130,7 +130,7 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 Graph& AirGraph::getGraph() {
 	return g;
 }
-
+void AirGraph::setG(Graph& sg) {g = sg;}
 vector<Vertex> AirGraph::getAdjacent(const Vertex& v) {
 	return g.getAdjacent(v);
 }

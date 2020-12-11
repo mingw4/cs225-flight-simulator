@@ -10,6 +10,7 @@ class AirGraph {
 		AirGraph();
 		AirGraph(string a, string r);
 		Graph& getGraph();
+		void setG(Graph& gr);
 		vector<string> split(string s, char sep);
 		string getid(const string& k) const;
 		Vertex getVertex(const string& k) const;

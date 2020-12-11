@@ -11,7 +11,9 @@ int distance(Vertex& a, Vertex& b) {
 	double a2 = a.getLongtitude();	
 	double b1 = b.getLatitude();
 	double b2 = b.getLongtitude();
-	return (a1 - b1) * (a1 - b1) + (a2 - b2) * (a2 - b2);
+	
+	return ((a1 - b1) * (a1 - b1) + (a2 - b2) * (a2 - b2)) / 100;
+
 }
 
 void buildGraph(Graph& g, string p, string r) {
@@ -139,12 +141,14 @@ int main() {
 	for (unsigned i = 0; i < ans3.size(); i++) {
 		cout << "from " << ans3[i].source.getiata() << " to " << ans3[i].dest.getiata() << endl;
 	}
-	// expected answer: "T16" - "T13" - "T15"
+	// expected answer: "T16" - "T05" - "T07" - "T06" - "T15"
 
 
-	/**
+	Graph g4;
+	buildGraph(g4, "./autoport.dat.txt", "./Landmark_test1_route_dat.txt");
 	cout << "Landmark test 1" << endl;
 	AirGraph b1("./autoport.dat.txt", "./Landmark_test1_route_dat.txt");
+	b1.setG(g4);
 	LandmarkPath l1(b1);
 	vector<Edge> result1;
 	Vertex source_1("0000", 0.0, 0.0, "TOO");
@@ -156,6 +160,7 @@ int main() {
 	for (unsigned i = 0; i < result1.size(); i++) {
 		cout << "from " << result1[i].source.getiata() << " to " << result1[i].dest.getiata() << endl;
 	}
+	// 00 - 05 - 02
 
 	cout << "Landmark test 2" << endl;
 	Vertex landmark_2("0007", 70.0, 0.0, "T07");
@@ -167,5 +172,5 @@ int main() {
 	}
 	// Graph g = a.getGraph();
 	// g.showStats();
-	*/
+
 }
