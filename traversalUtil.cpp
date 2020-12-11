@@ -10,7 +10,7 @@
 * @param start - the starting vertex of the traversal
  */
 
-void traversal::bfs(Graph &graph, Vertex source) {
+void traversal::bfs(vector<Vertex> &vv, Graph &graph, Vertex source) {
 
     std::list<Vertex> priorityQueue;
     priorityQueue.push_back(source);
@@ -18,6 +18,7 @@ void traversal::bfs(Graph &graph, Vertex source) {
 
     while(!priorityQueue.empty()) {
         Vertex curr = priorityQueue.front();
+		vv.push_back(curr);
         priorityQueue.pop_front();
         vector<Vertex> adjVector = graph.getAdjacent(curr);
         for(std::size_t i = 0; i < adjVector.size(); i++) {
@@ -30,7 +31,7 @@ void traversal::bfs(Graph &graph, Vertex source) {
             }
         }
     }
-    
+  	visited.clear();  
 }
 
 
