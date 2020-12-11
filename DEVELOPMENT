@@ -53,6 +53,8 @@ Week4:
 	-- ./main -LFports "./autoport.dat.txt" -LFroutes "./Dijkstra_testcomplex1_route.dat.txt" -from "T00" -to "T15"
 	-- ./main -LFports "./autoport.dat.txt" -LFroutes "./Dijkstra_testcomplex2_route.dat.txt" -from "T16" -to "T15"
 													-- Jiale Ning
+	Implement the test case of Landmark algorithm, and make sure Landmark run correctly.
+													-- Jiale Ning
 
 
 Bohan updated the main file that accepted arguments and error catching in initialization. He also revised 
