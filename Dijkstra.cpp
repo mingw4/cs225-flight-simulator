@@ -4,6 +4,9 @@ Dijkstra::Dijkstra(AirGraph &airgraph, const Vertex &src) {
     source = src;
     buildMap();
 }
+Dijkstra::Dijkstra(Graph &setGraph, const Vertex &src): graph(setGraph), source(src) {
+	buildMap();
+}
 void Dijkstra::buildMap() {
     Node* start = new Node(source, 0, Vertex());
     store[source] = start;

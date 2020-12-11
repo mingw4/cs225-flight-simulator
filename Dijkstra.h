@@ -20,8 +20,10 @@ using std::priority_queue;
     class Dijkstra {
     public:
         Dijkstra(AirGraph &airgraph, const Vertex &src);
+		Dijkstra(Graph &setgraph, const Vertex &src);
         // find distance from source to dest
         double distanceTo(Vertex &dest);
+
         ~Dijkstra();
         // find all edges in path from source to dest
         vector<Edge> shortestPathTo(const Vertex &dest);
