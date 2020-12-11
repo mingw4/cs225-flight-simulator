@@ -113,8 +113,8 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 			double w = distance(source, dest);
 			// calculate cruise time
 			w /= 850;
-			//reserve 1.5 hour for take off and landing.
-			w += 1.5;
+			//reserve 0.2 hour for take off and landing.
+			w += 0.2;
 			// add pseudo stop time if needed
 			if (std::stoi(sv[7]) > 0) w+=2;
 			//std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
