@@ -10,7 +10,10 @@
 * @param start - the starting vertex of the traversal
  */
 
-void traversal::bfs(Graph &graph, Vertex source) {
+vector<string> traversal::bfs(Graph &graph, Vertex source) {
+    std::vector<string> output;
+    
+    if(!graph.vertexExists(source)) return output;
 
     std::list<Vertex> priorityQueue;
     priorityQueue.push_back(source);
@@ -20,6 +23,12 @@ void traversal::bfs(Graph &graph, Vertex source) {
         Vertex curr = priorityQueue.front();
         priorityQueue.pop_front();
         vector<Vertex> adjVector = graph.getAdjacent(curr);
+
+        //print out statement for testing
+        std::cout<< curr.getid() << std::endl;
+
+        output.push_back(curr.getid());
+
         for(std::size_t i = 0; i < adjVector.size(); i++) {
 
             //if this vertex hasn't been visited 
@@ -30,7 +39,7 @@ void traversal::bfs(Graph &graph, Vertex source) {
             }
         }
     }
-    
+    return output;
 }
 
 

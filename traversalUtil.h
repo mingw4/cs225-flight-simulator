@@ -24,8 +24,9 @@ class traversal {
         /** implement a bfs traversal
          * @param graph - the airgraph from "airgraph.h"
          * @param start - the starting vertex of the traversal
+         * @return - a vector of airport ids followed by the order of BFS traversal!
          */
-        void bfs(Graph &graph, Vertex source);
+        vector<string> bfs(Graph &graph, Vertex source);
 
     private:
         //store the visited vertices 
