@@ -18,23 +18,23 @@ double AirGraph::distance(Vertex n1, Vertex n2)
     double longitude1=n1.getLongtitude(), latitude1=n1.getLatitude(), longitude2=n2.getLongtitude(), latitude2=n2.getLatitude();
 
     // code used to test Dijkstra
-	double a = latitude1 - latitude2;
-	double b = longitude1 - longitude2;
-	return pow(a, 2) + pow(b, 2);
+	// double a = latitude1 - latitude2;
+	// double b = longitude1 - longitude2;
+	// return pow(a, 2) + pow(b, 2);
 
-	//difference of lat /rad
-	// double lat1 = latitude1 * t;
-	// double lat2 = latitude2 * t;
-    // double  a = lat1 - lat2;
-    // //difference of lng /rad
-    // double  b = (longitude1 - longitude2) * t;
-    // //calgulate the distance
+	// difference of lat /rad
+	double lat1 = latitude1 * t;
+	double lat2 = latitude2 * t;
+    double  a = lat1 - lat2;
+    //difference of lng /rad
+    double  b = (longitude1 - longitude2) * t;
+    //calgulate the distance
 	
-	// double s = 0.5 - cos(a)/2 + cos(lat1) * cos(lat2) * (1-cos(b))/2;
-    // //double s = 2*asin(sqrt(pow(sin(a/2),2)+cos(lat1)*cos(lat2)*pow(sin(b/2),2)));
-    // //s = s * 6371;//the radius of earth (km)
+	double s = 0.5 - cos(a)/2 + cos(lat1) * cos(lat2) * (1-cos(b))/2;
+    //double s = 2*asin(sqrt(pow(sin(a/2),2)+cos(lat1)*cos(lat2)*pow(sin(b/2),2)));
+    //s = s * 6371;//the radius of earth (km)
 	
-    // return 12742 * asin(sqrt(s));
+    return 12742 * asin(sqrt(s));
 }
 
 
@@ -111,21 +111,16 @@ AirGraph::AirGraph(string airportFile, string routeFile): g() {
 			//std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
 			//distance based weight
 			double w = distance(source, dest);
-			// // calculate cruise time
-			// w /= 850;
-			// //reserve 1.5 hour for take off and landing.
-			// w += 1.5;
+			// calculate cruise time
+			w /= 850;
+			//reserve 1.5 hour for take off and landing.
+			w += 1.5;
 
-			// // add pseudo stop time if needed
-			// if (std::stoi(sv[7]) > 0) w+=2;
+			// add pseudo stop time if needed
+			if (std::stoi(sv[7]) > 0) w+=2;
 
-<<<<<<< HEAD
-			// std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
-			// std::cout << "estimated travel time:" << w <<std::endl;
-=======
-			//std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
-			//std::cout << "estimated travel time:" << w <<std::endl;
->>>>>>> 344a272f53a45357f2522d92c97e494f7741aa83
+			std::cout << "from id " << sv[3] << " to id " << sv[5] << std::endl;
+			std::cout << "estimated travel time:" << w <<std::endl;
 
 			g.insertEdge(source,dest,w, sv[0] + "--" + sv[8],stops);
 		}	

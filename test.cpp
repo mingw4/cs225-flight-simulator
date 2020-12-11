@@ -39,6 +39,8 @@ int main() {
 	}
 	g.showStats();
 
+
+
 	cout << "Dijkstra test 1" << endl;
 	AirGraph a1("./autoport.dat.txt", "./Dijkstra_testsimple_route.dat.txt");
 	Vertex source1("0000", 0.0, 0.0, "TOO");
@@ -82,9 +84,17 @@ int main() {
 	vector<Vertex> path1;
 	path1.push_back(landmark_1);
 	l1.find(result1, source_1, dest_1, path1);
-	cout << result1.size() << endl;
 	for (unsigned i = 0; i < result1.size(); i++) {
 		cout << "from " << result1[i].source.getiata() << " to " << result1[i].dest.getiata() << endl;
+	}
+
+	cout << "Landmark test 2" << endl;
+	Vertex landmark_2("0007", 70.0, 0.0, "T07");
+	path1.push_back(landmark_2);
+	vector<Edge> result2;
+	l1.find(result2, source_1, dest_1, path1);
+	for (unsigned i = 0; i < result2.size(); i++) {
+		cout << "from " << result2[i].source.getiata() << " to " << result2[i].dest.getiata() << endl;
 	}
 	// Graph g = a.getGraph();
 	// g.showStats();
